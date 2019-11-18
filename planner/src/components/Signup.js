@@ -33,7 +33,7 @@ export default function signup(){
                    <input type='password' />
                </label>
             <Link to="/">
-
+                <button>Submit</button>
             </Link>
         </div>
     )
