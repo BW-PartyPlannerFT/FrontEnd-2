@@ -5,10 +5,9 @@ import "../App.css";
 const Nav = () => {
   return (
     <div className="header">
-      <h1>Pary Planner</h1>
-      
-      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/">Login</NavLink>
       <NavLink to="/signup">Sign Up</NavLink>
+      <h1>Pary Planner</h1>
     </div>
   );
 };

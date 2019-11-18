@@ -2,7 +2,7 @@
 // State handled locally.
 // On submit redirects to private route (PartyList)
 import React, {useState} from 'react';
-import {axiosWithAuth} from '../utils/axiosWithSuth';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Login = (props) => {
@@ -23,13 +23,14 @@ const Login = (props) => {
       const login = e => {
         e.preventDefault();
         setIsLoading(true);
-        axiosWithAuth()
-          .post("/auth/login", credentials)
+       axios
+          .post("https://partyplanner-b.herokuapp.com/api/auth/login", credentials)
           .then(res => {
-            sessionStorage.setItem("token", res.data.payload);
+              console.log("Response from login", res.data)
+            sessionStorage.setItem("token", res.data.user);
             props.history.push("/partyList");
           })
-          .catch(err => console.log(err));
+          .catch(err => alert(err, 'There was an error in logging in', err));
       };
     
     return (
