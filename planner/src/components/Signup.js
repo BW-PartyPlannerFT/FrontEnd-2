@@ -3,3 +3,14 @@
 //State will be managed locally 
 //axios post request.
 //Once signed up, onClick will redirect to login pg. 
+import { Link } from 'react-router-dom';
+export default function signup(){
+    return(
+        <div className="Signup-Links">
+            <Link to="/">
+                
+            </Link>
+        </div>
+    )
+}
+
