@@ -6,6 +6,16 @@ import React from 'react';
 function Login() {
     return (
         <div className="Login">
+           <form>
+               <label>
+                   Username:
+                   <input type='text' placeholder='Enter Username' />
+               </label>
+               <label>
+                   Password:
+                   <input type='password' placeholder='Password' />
+               </label>
+            </form> 
         
         </div>
       );
