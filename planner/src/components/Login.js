@@ -2,6 +2,7 @@
 // State handled locally.
 // On submit redirects to private route (PartyList)
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
     return (
@@ -15,6 +16,12 @@ function Login() {
                    Password:
                    <input type='password' placeholder='Password' />
                </label>
+               <Link to="/PartyList">
+                   <button>Login</button>
+               </Link>
+               <Link to="/Signup">
+                   <button>Sign up</button>
+               </Link>
             </form> 
         
         </div>
