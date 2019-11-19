@@ -33,7 +33,7 @@ const Login = (props) => {
           .catch(err => alert(err, 'There was an error in logging in', err));
       };
     
-    return (
+      return (
         <>
         <div className="Login">
            <form onSubmit={login}>
@@ -45,22 +45,14 @@ const Login = (props) => {
                    Password:
                    <input type='password' name='password' placeholder='Password' value={credentials.password} onChange={handleChange}/>
                </label>
-
-               
                 <button>Login</button>
-              
-
-
                <Link to="/Signup">
                    <button>Sign up</button>
                </Link>
-               
-
             </form> 
             <Link to="/Signup">
                 <button>Sign up</button>
             </Link>
-
         </div>
         <div>
             {isLoading && (
@@ -71,6 +63,5 @@ const Login = (props) => {
         </>
       );
     }
-  
   export default Login;
   
