@@ -37,6 +37,7 @@ const Login = (props) => {
 
     return (
         <>
+        <Nav/>
         <div className="Login">
            <form onSubmit={login}>
                <label>

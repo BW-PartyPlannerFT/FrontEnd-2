@@ -1,8 +1,9 @@
-import React from 'react';
+import {createContext} from 'react';
 
-const Store = React.createContext({
-        parties = {
-            id: Date.now(),
+const Store = createContext({
+     state: {
+            parties: [
+            {d: Date.now(),
             party_name: '',
             host: '',
             guests: '',
@@ -10,25 +11,27 @@ const Store = React.createContext({
             date: '',
             budget: 0,
             category_id: ''
-        },
-        categories = {
+            }],
+        categories: [{
             id: '',
             category: ''
-        },
-       todo_list = {
+        }],
+       todo_list:[{
            id: Date.now(),
            task: '',
            completed: false
-       },
-       shop_list = {
+       }],
+       shop_list: [{
            id: Date.now(),
            item: '',
            price: 0,
            purchased: false
-       },
-       pictures = {
+       }],
+       pictures: [{
            id: Date.now(),
            url: '',
            party_id: ''
-       } 
-})
+       }] 
+        }
+});
+export default Store;

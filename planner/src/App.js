@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useReducer} from 'react';
 import './App.css';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from './components/Login';
@@ -7,10 +7,22 @@ import PartyForm from './components/PartyForm';
 
 import PrivateRoute from './components/PrivateRoute';
 import PartyList from '../src/components/PartyList';
+import {usePersistedContext, usePersistedReducer} from './components/hooks/useLocalStorage';
+
+import Store from './context';
+import appReducers from './redux/reducers/appReducers';
 
 
 function App() {
+  const globalStore = usePersistedContext(useContext(Store), "state");
+
+  // `todos` will be a state manager to manage state.
+  const [state, dispatch] = usePersistedReducer(
+    useReducer(appReducers, globalStore),
+    "state" // The localStorage key
+  );
   return (
+    <Store.Provider value={{state, dispatch}}>
     <div className="App">
     
      <Switch>
@@ -22,13 +34,8 @@ function App() {
       <Route path="/partyform" component={PartyForm}/>
     </PrivateRoute>
     </Switch>
-<<<<<<< HEAD
-=======
-
-    <Route path="/partyform" component={PartyForm}/>
-
->>>>>>> 210e8b53feaefee23b2f4c711e9e2c2b9756f5fc
     </div>
+    </Store.Provider>
   );
 }
 
