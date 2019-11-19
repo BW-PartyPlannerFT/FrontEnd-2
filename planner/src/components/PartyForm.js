@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -17,45 +18,51 @@ const OnBoard = ({ values, errors, touched, status }) => {
       <Form>
           <h2>Basic Info</h2>
           <h4>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</h4>
-         <div> <Field type="text" name="host" placeholder="Host" />
-        {touched.host && errors.host && <p className="errors">{errors.host}</p>}</div>
+         <div> Host <div><Field type="text" name="host" placeholder="Host" />
+        {touched.host && errors.host && <p className="errors">{errors.host}</p>}</div></div>
     
-        <div> <Field type="text" name="name" placeholder="Party Title" />
-        {touched.name && errors.name && <p className="errors">{errors.name}</p>}</div> 
+        <div> Party Title <div><Field type="text" name="name" placeholder="Party Title" />
+        {touched.name && errors.name && <p className="errors">{errors.name}</p>}</div></div>
         
-        <div><Field type="text" name="theme" placeholder="Theme" />
+        <div>Theme <div><Field type="text" name="theme" placeholder="Theme" />
         {touched.theme && errors.theme && (
           <p className="errors">{errors.theme}</p>
-        )}</div>
+        )}</div></div>
 
-        <div><Field type="text" name="guest" placeholder="# of guest" />
+        <div>Number of expected guests <div><Field type="text" name="guest" placeholder="# of expected guests" />
         {touched.guest && errors.guest && (
           <p className="errors">{errors.guest}</p>
-        )}</div>
+        )}</div></div>
 
-        <div> <Field type="text" name="description" placeholder="Description" />
-        {touched.email && errors.email && (
-          <p className="errors">{errors.email}</p>
-        )}</div>
+        <div> Description <div><Field type="text" name="description" placeholder="Description" />
+        {touched.description && errors.description && (
+          <p className="errors">{errors.description}</p>
+        )}</div></div>
 
-        <div> <Field type="text" name="budget" placeholder="Budget" />
+        <div> Budget <div><Field type="text" name="budget" placeholder="Budget" />
         {touched.budget && errors.budget && (
           <p className="errors">{errors.budget}</p>
-        )}</div>
-
+        )}</div></div>
+        <select class="form-control form-control-lg">
+        <option>Category</option>
+        <option>Adult Birthday Party</option>
+        <option>Dinner Party</option>
+        <option>Anniversary Party</option>
+        <option>Kid's Birthday Party</option>
+        <option>Charity Party</option>
+        </select>
         <label>
-          Terms Of Service
-          <Field
-            type="checkbox"
-            name="termsOfService"
-            checked={values.termsOfService}
-          />
-          {touched.termsOfService && errors.termsOfService && (
-            <p className="errors">{errors.termsOfService}</p>
+          {/* <Field
+            type="dropdown"
+            name="category"
+            placeholder="Cat"
+          /> */}
+          {touched.category && errors.category && (
+            <p className="errors">{errors.category}</p>
           )}
         </label>
 
-        <div><button type="submit">Add Party!</button></div>
+        <div><button type="submit">Let's Party!!!</button></div>
       </Form>
       {users.map(user => (
         <ul key={user.id}>
@@ -66,7 +73,7 @@ const OnBoard = ({ values, errors, touched, status }) => {
           <li>Password: {user.password}</li>
           <li>Guest: {user.guest}</li>
           <li>Budget: {user.budget}</li>
-          <li>Checkbox: {user.termsOfService}</li>
+          <li>Category: {user.category}</li>
         </ul>
       ))}
     </div>
@@ -74,27 +81,27 @@ const OnBoard = ({ values, errors, touched, status }) => {
 };
 
 const PartyForm = withFormik({
-  mapPropsToValues({ host, name, email, password, theme, guest, budget, termsOfService }) {
+  mapPropsToValues({ host, name, description, password, theme, guest, budget, category }) {
     return {
       host: host || '',
       name: name || '',
-      email: email || '',
+      description: description || '',
       password: password || '',
       theme: theme || '',
       guest: guest || '',
       budget: budget || '',
-      termsOfService: termsOfService || false
+      category: category || '',
     };
   },
   validationSchema: Yup.object().shape({
     host: Yup.string().required(),
     name: Yup.string().required(),
-    email: Yup.string().required(),
+    description: Yup.string().required(),
     password: Yup.string().required(),
     theme: Yup.string().required(),
     guest: Yup.string().required(),
     budget: Yup.string().required(),
-    termsOfService: Yup.boolean().oneOf([true], 'error message string')
+    category: Yup.string().required(),
   }),
   handleSubmit(values, { setStatus }) {
     axios
