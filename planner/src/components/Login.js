@@ -1,3 +1,4 @@
+//DO NOT CHANGE CODE IN THIS FILE
 // Login form with input for username and password. 
 // State handled locally.
 // On submit redirects to private route (PartyList)
@@ -34,73 +35,38 @@ const Login = (props) => {
             .catch(err => alert(err, 'There was an error in logging in', err));
     };
 
-    return ( <
-        >
-        <
-        Nav / >
-        <
-        div className = "Login" >
-        <
-        form onSubmit = {
-            login
-        } >
-        <
-        label >
-        Username:
-        <
-        input type = 'text'
-        name = 'username'
-        placeholder = 'Enter Username'
-        value = {
-            credentials.username
-        }
-        onChange = {
-            handleChange
-        }
-        /> <
-        /label> <
-        label >
-        Password:
-        <
-        input type = 'password'
-        name = 'password'
-        placeholder = 'Password'
-        value = {
-            credentials.password
-        }
-        onChange = {
-            handleChange
-        }
-        /> <
-        /label>                <
-        button > Login < /button>
+    return (
+        <>
+        <div className="Login">
+           <form onSubmit={login}>
+               <label>
+                   Username:
+                   <input type='text' name='username' placeholder='Enter Username' value={credentials.username} onChange={handleChange}/>
+               </label>
+               <label>
+                   Password:
+                   <input type='password' name='password' placeholder='Password' value={credentials.password} onChange={handleChange}/>
+               </label>
+                <button>Login</button>
+              
+               <Link to="/Signup">
+                   <button>Sign up</button>
+               </Link>
+            
+            </form> 
+            <Link to="/Signup">
+                <button>Sign up</button>
+            </Link>
 
-        <
-        Link to = "/Signup" >
-        <
-        button > Sign up < /button> <
-        /Link>
-
-
-        <
-        /form>  <
-        Link to = "/Signup" >
-        <
-        button > Sign up < /button> <
-        /Link>
-
-        <
-        /div> <
-        div > {
-            isLoading && (
-                //Add some animation here?
-                <
-                h2 > Loading... < /h2>
-            )
-        } <
-        /div> <
-        />
-    );
-}
-
-export default Login;
+        </div>
+        <div>
+            {isLoading && (
+          //Add some animation here?
+            <h2>Loading...</h2>
+        )}
+        </div>
+        </>
+      );
+    }
+  
+  export default Login;

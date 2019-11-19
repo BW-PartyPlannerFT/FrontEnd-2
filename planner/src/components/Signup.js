@@ -5,6 +5,7 @@
 //Once signed up, onClick will redirect to login pg. 
 import React, {useState} from 'react';
 // import { Link } from 'react-router-dom';
+import Nav from './Nav';
 import axios from 'axios';
 
 
@@ -39,6 +40,8 @@ const Signup = (props) => {
         
 
     return(
+        <>
+        <Nav/>
         <div className="Signup-Links">
             <h1>REGISTER</h1>
             <form onSubmit={signup}>
@@ -59,6 +62,7 @@ const Signup = (props) => {
             
             </form>
         </div>
+        </>
     )
 }
 export default Signup;
