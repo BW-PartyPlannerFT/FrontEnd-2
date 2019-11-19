@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {withFormik, Form, Field} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 
 const OnBoard = ({ values, errors, touched, status}) =>{
 const [users, setUsers] = useState([]);
@@ -14,8 +14,13 @@ useEffect(() => {
 
 
 
-return (
-    <div>
+return (     <div>     <section>
+    
+      <Link to={"/"}>
+        Home
+      </Link>
+      </section>
+   
         <Form>
             <Field type="text" name="name" placeholder="Name" />
             {touched.name && errors.name && (
@@ -40,6 +45,7 @@ return (
             </label>    
             
             <button type="submit">Submit!</button>
+   
         </Form>
 
         {users.map(user => (
@@ -82,5 +88,7 @@ const PartyForm = withFormik({
     }
 })(OnBoard);
  
+
+
 export default PartyForm;
 // console.log("This is the HOC", FormikOnBoarding);
