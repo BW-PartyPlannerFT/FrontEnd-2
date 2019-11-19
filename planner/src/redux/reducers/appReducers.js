@@ -11,7 +11,7 @@ export const appReducers = (state, action) => {
             };
             return {
                 ...state,
-                todo_list: [...state.todo_list, newItem]
+                todo_list: [...state.state.todo_list, newItem]
             };
 
         case TOGGLE_COMPLETED:

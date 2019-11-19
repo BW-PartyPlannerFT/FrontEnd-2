@@ -1,8 +1,8 @@
 //Renders Todo and maps over each to display ea item. 
 import React, { useContext } from "react";
 import Store from "../../context";
-import { TodoHeader } from "./TodoHeader";
-import Todo from './Todo';
+
+import {Todo} from './Todo';
 
 export default function TodoList() {
   const { state, dispatch } = useContext(Store);
@@ -14,9 +14,9 @@ export default function TodoList() {
     state.state.todo_list.length === 0 ? (
       <h4>Yay! All todos are done! Take a rest!</h4>
     ) : (
-      <TodoHeader>
+      <Todo>
         <span className="float-right">{pluralize(state.state.todo_list.length)}</span>
-      </TodoHeader>
+      </Todo>
     );
   return (
     <div className="row">
@@ -31,7 +31,7 @@ export default function TodoList() {
           <div className="col-md-12">
             <ul className="list-group">
               {state.state.todo_list.map(t => (
-                <li key={t.id} className="list-group-item">
+                <li key={t.task.id} className="list-group-item">
                   {t.task}
                   <button
                     className="float-right btn btn-danger btn-sm"
@@ -45,6 +45,7 @@ export default function TodoList() {
             </ul>
           </div>
         </div>
+        
       </div>
     </div>
   );
