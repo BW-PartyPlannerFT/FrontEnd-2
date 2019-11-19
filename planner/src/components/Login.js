@@ -47,11 +47,8 @@ const Login = (props) => {
                    Password:
                    <input type='password' name='password' placeholder='Password' value={credentials.password} onChange={handleChange}/>
                </label>
+
                 <button>Login</button>
-              
-               <Link to="/Signup">
-                   <button>Sign up</button>
-               </Link>
             
             </form> 
             <Link to="/Signup">

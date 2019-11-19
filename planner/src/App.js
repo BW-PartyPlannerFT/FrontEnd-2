@@ -8,6 +8,7 @@ import PartyForm from './components/PartyForm';
 import PrivateRoute from './components/PrivateRoute';
 import PartyList from '../src/components/PartyList';
 
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,12 @@ function App() {
       <Route path="/partyform" component={PartyForm}/>
     </PrivateRoute>
     </Switch>
+<<<<<<< HEAD
+=======
+
+    <Route path="/partyform" component={PartyForm}/>
+
+>>>>>>> 210e8b53feaefee23b2f4c711e9e2c2b9756f5fc
     </div>
   );
 }
