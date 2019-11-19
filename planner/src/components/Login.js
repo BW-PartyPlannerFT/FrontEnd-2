@@ -4,6 +4,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({
@@ -35,6 +36,7 @@ const Login = (props) => {
     
     return (
         <>
+        <Nav/> 
         <div className="Login">
            <form onSubmit={login}>
                <label>

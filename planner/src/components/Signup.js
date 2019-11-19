@@ -3,7 +3,7 @@
 //State will be managed locally 
 //axios post request.
 //Once signed up, onClick will redirect to login pg. 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
 
