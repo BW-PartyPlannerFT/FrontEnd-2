@@ -22,6 +22,9 @@ function Login() {
                <Link to="/Signup">
                    <button>Sign up</button>
                </Link>
+               <Link to="/PartyForm">
+                   <button>Party Form</button>
+               </Link>
             </form> 
         
         </div>
