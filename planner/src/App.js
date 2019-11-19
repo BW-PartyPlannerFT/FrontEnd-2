@@ -4,13 +4,14 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import PartyForm from './components/PartyForm';
+import TodoList from './components/todolist/TodoList';
 
 import PrivateRoute from './components/PrivateRoute';
 import PartyList from '../src/components/PartyList';
 import {usePersistedContext, usePersistedReducer} from './components/hooks/useLocalStorage';
 
 import Store from './context';
-import appReducers from './redux/reducers/appReducers';
+import {appReducers} from './redux/reducers/appReducers';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
     <PrivateRoute>
       <Route exact path='/partyList' component={PartyList}/>
       <Route path="/partyform" component={PartyForm}/>
+      <Route path='/todoList' component={TodoList}/>
     </PrivateRoute>
     </Switch>
     </div>

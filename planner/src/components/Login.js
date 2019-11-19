@@ -29,7 +29,7 @@ const Login = (props) => {
             .post("https://partyplanner-b.herokuapp.com/api/auth/login", credentials)
             .then(res => {
                 console.log("Response from login", res.data)
-                sessionStorage.setItem("token", res.data.user);
+                localStorage.setItem("token", res.data.user);
                 props.history.push("/partyList");
             })
             .catch(err => alert(err, 'There was an error in logging in', err));

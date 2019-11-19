@@ -30,7 +30,7 @@ const Signup = (props) => {
             .post('https://partyplanner-b.herokuapp.com/api/auth/register', newCreds)
             .then(res => {
                 console.log(res.data, res);
-                sessionStorage.setItem('token', res.data.user);
+                localStorage.setItem('token', res.data.user);
                 props.history.push('/');
                 setNewCreds('')
             })

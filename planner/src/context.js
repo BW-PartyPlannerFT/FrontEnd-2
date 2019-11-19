@@ -3,7 +3,7 @@ import {createContext} from 'react';
 const Store = createContext({
      state: {
             parties: [
-            {d: Date.now(),
+            {id: Date.now(),
             party_name: '',
             host: '',
             guests: '',

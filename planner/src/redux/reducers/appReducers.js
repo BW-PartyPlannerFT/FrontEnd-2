@@ -1,32 +1,41 @@
 //DO NOT CHANGE CODE IN THIS FILE
-import {ADD_TODO, GET_TODOS, COMPLETE} from '../actionTypes/appActions';
+import {ADD_TODO, CLEAR_TODO, TOGGLE_COMPLETED, UPDATE_TODO} from '../actionTypes/appActions';
 
-export default function reducer(state, action){
-    switch(action.type){
-        case ADD_TODO :
-            //return if is state empty
-            if(!action.payload){
-                return state;
-            }
-            //return is current state duplicate
-            if(state.todo_list.includes(action.payload)){
-                return state;
-            }
-            return {
-                ...state,
-                todo_list:[...state.todo_list, action.payload]
+export const appReducers = (state, action) => {
+    switch(action.type) {
+        case ADD_TODO:
+            let newItem = {
+                id: Date.now(),
+                task: action.payload,
+                completed: false
             };
-        case GET_TODOS :
             return {
                 ...state,
-                todo_list:[...state.todos]
-            }
-        case COMPLETE :
+                todo_list: [...state.todo_list, newItem]
+            };
+
+        case TOGGLE_COMPLETED:
+            let updatedTodos = state.todo_list.task.map(item => {
+                if(item.id === action.payload) {
+                    return {
+                        ...item,
+                        completed: !item.completed
+                    };
+                }else {
+                    return item;
+                }
+            });
+                return {
+                    ...state,
+                    todo_list: updatedTodos
+                };
+                
+        case CLEAR_TODO:
             return {
                 ...state,
-                todo_list: state.todo_list.filter(t => t !== action.payload)
-            }
-        default:
-            return state;
+                todo_list: state.todo_list.task.filter(item => !item.completed)
+            };
+            default:
+                return state;        
     }
 }
