@@ -1,18 +1,21 @@
 // Rendered in TodoList
 // Displays list of items and toggle completed.
 
-// import React from "react";
+// import React from 'react';
 
-// export const Todo = (props) => (
-    
-//   <div className="row">
-//     <div className="col-md-8">
-//       <h5>Todo List</h5>
+
+// const TodoItem = props => {
+//     const toggleItem = () => {
+//         props.toggleItem(props.item.id)
+// };
+// return (
+//     <div className="todoContainer">
+//         <p className={`item${props.item.completed ? ' completed' : ''}`} 
+//         onClick={toggleItem}>{props.item.item}</p>
 //     </div>
-//     <div className="col-md-4">
-//       {props.children}
-//       {console.log('todo props',props.children)}
-//     </div>
-//   </div>
-// );
+// )
+// };
+
+
+// export default TodoItem;
 

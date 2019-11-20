@@ -23,18 +23,19 @@ const Signup = props => {
     });
   };
 
-  const signup = e => {
-    e.preventDefault();
-    axios
-      .post("https://partyplanner-b.herokuapp.com/api/auth/register", newCreds)
-      .then(res => {
-        console.log(res.data, res);
-        localStorage.setItem("token", res.data.user);
-        props.history.push("/");
-        setNewCreds("");
-      })
-      .catch(err => alert("There was an error in signing up", err));
-  };
+       const signup = (e)=> {
+            e.preventDefault();
+            axios
+            .post('https://partyplanner-b.herokuapp.com/api/auth/register', newCreds)
+            .then(res => {
+                console.log(res.data, res);
+                localStorage.setItem('token', res.data.user);
+                props.history.push('/');
+                setNewCreds('')
+            })
+            .catch(err => console.log('There was an error in signing up', err));
+        }
+    
 
   return (
     <>

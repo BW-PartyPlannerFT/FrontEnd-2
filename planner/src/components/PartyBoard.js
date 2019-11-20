@@ -14,7 +14,9 @@ const PartyBoard = props => {
     return (
       <>
         <div>
+            
             <h3>{props.party_name}</h3>
+            
             <ul>
                 <li>Host: {props.host}</li>
                 <li>guests: {props.guests}</li>
@@ -22,15 +24,20 @@ const PartyBoard = props => {
                 <li>date: {props.date}</li>
                 <li>date: {props.date}</li>
                 <li>budget: {props.budget}</li>
+                <li>Category: {props.category}</li>
             </ul>
+            
         </div>
         <div>
+        
           <Link to ="/todolist">
               <button>To Do List</button>
           </Link>
+        
           <Link to="/shoppinglist">
               <button>Shopping List</button>
           </Link>
+        
         </div>
         </>
     )

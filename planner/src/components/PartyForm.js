@@ -30,11 +30,12 @@ const PartyForm = props => {
 
 const mapStateToProps = state => {
   return {
-    parties: state.parties,
-    error: state.error,
-    isAdding: state.isAdding
+    parties: state.partyReducer.parties,
+    error: state.partyReducer.error,
+    isAdding: state.partyReducer.isAdding
   }
 }
 
 
 export default connect(mapStateToProps, {rxAddParty})(PartyForm);
+//need help with this form passing in data
