@@ -26,10 +26,10 @@ return (
   <>
     <div>
         {/* {props.error && <p>{props.error}</p>} */}
-        {props.state.parties.map(item => {
-          console.log("partylist", props);
-            return (
-                <PartyBoard key={item.id} 
+        {/* {props.parties.map(item => { */}
+          
+            {/* return ( */}
+                {/* <PartyBoard key={item.id} 
                             party_name={item.party_name} 
                             host={item.host} 
                             guests={item.guests}
@@ -37,7 +37,7 @@ return (
                             date={item.date}
                             budget={item.budget}/>
             )
-        })}
+        } */}
        </div>
        <div>
         <Link to="/partyform">
@@ -51,7 +51,7 @@ return (
 
 const mapStateToProps = state => {
   return {
-    parties: state.state.parties,
+    parties: state.parties,
     error: state.error,
     isLoading: state.isLoading
   }

@@ -6,40 +6,13 @@
 // import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 
-// import {axiosWithAuth} from '../utils/axiosWithAuth';
-// function Party() {
-//     const [partyb, setPartyB]= useState([]);
-  
-//     const partyBoard = () => {
-//       axiosWithAuth()
-//         .get('/parties')
-//         .then(response => {
-//           console.log(response);
-//           setPartyB(response.data);
-//         })
-//         .catch(fail => console.log("failed to work", fail));
-//     };
-  
-//     useEffect(() => {
-//       partyBoard();
-//     } , []);
-//     return (
-//       <div>
-//         <Link to ="/todolist">
-//             <button>To Do List</button>
-//         </Link>
-//         <Link to="/shoppinglist">
-//             <button>Shopping List</button>
-//         </Link>
-//       </div>
-//     );
-//   }
-//   export default Party;
 
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const PartyBoard = props => {
     return (
+      <>
         <div>
             <h3>{props.party_name}</h3>
             <ul>
@@ -51,6 +24,15 @@ const PartyBoard = props => {
                 <li>budget: {props.budget}</li>
             </ul>
         </div>
+        <div>
+          <Link to ="/todolist">
+              <button>To Do List</button>
+          </Link>
+          <Link to="/shoppinglist">
+              <button>Shopping List</button>
+          </Link>
+        </div>
+        </>
     )
 }
 export default PartyBoard;
