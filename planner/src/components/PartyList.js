@@ -4,24 +4,58 @@
 // Click on party and navigates to PartyBoard
 // Button to create new party that redirects you to PartyForm
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux'
+import {rxGetParty} from '../redux/parties/actions';
 
 import PartyBoard from './PartyBoard';
 
 
 
 const PartyList = (props) => {
+  useEffect(() => {
+    props.rxGetParty();
+  },[])
   
-    return (      
-
-      <div className="partyList">
-        <h1>Welcome to the Party!</h1>
-        <p>List of parties here</p>
+  
+  if(props.isLoading){
+    return <h2><span role="img" aria-labelledby='jsx-ally/accessible-emoji'>🔃</span></h2>
+}
+return (
+  <>
+    <div>
+        {/* {props.error && <p>{props.error}</p>} */}
+        {props.state.parties.map(item => {
+          console.log("partylist", props);
+            return (
+                <PartyBoard key={item.id} 
+                            party_name={item.party_name} 
+                            host={item.host} 
+                            guests={item.guests}
+                            theme={item.theme}
+                            date={item.date}
+                            budget={item.budget}/>
+            )
+        })}
+       </div>
+       <div>
         <Link to="/partyform">
           <button>ADD NEW PARTY</button>
         </Link>
       </div>
+      </>
     );
 };
-export default PartyList;
+
+
+const mapStateToProps = state => {
+  return {
+    parties: state.state.parties,
+    error: state.error,
+    isLoading: state.isLoading
+  }
+}
+
+
+export default connect(mapStateToProps, {rxGetParty})(PartyList); 
