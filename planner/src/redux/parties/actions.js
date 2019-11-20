@@ -10,8 +10,10 @@ export const rxGetParty = () => dispatch=> {
     dispatch({type: GET_PARTY})
     axiosWithAuth()
         .get('/parties')
-        .then(res=> console.log(res))
-        .catch(err => console.log('There was an error fetching your data.', err.response));
+        .then(res=> {
+            return dispatch({type: GET_PARTY_SUCCESS, payload: res.data})
+        })
+        .catch(err => dispatch({type: GET_PARTY_FAIL, payload: err.response}))
 }
 
 

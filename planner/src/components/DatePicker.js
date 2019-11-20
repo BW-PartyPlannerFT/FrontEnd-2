@@ -92,7 +92,7 @@ class DatePicker extends Component {
             <CardStyle>
               <FormGroup>
             <CardTitleSize><Label for="host">Host: </Label></CardTitleSize>
-              <Input type="text" name="host" placeholder='Who is hosting?' onChange={this.handleChanges}value={props.parties.host}/>
+              <Input type="text" name="host" placeholder='Who is hosting?' onChange={this.handleChanges} />
             </FormGroup>
             </CardStyle>
             <FormGroup>
@@ -122,28 +122,28 @@ class DatePicker extends Component {
             </FormGroup>
            <CardStyle><FormGroup>
             <CardTitleSize><Label for="title">Party Title: </Label></CardTitleSize>
-              <Input type="text" name="title" placeholder="Enter title of event.." onChange={this.handleChanges} value={props.parties.party_name}/>
+              <Input type="text" name="title" placeholder="Enter title of event.." onChange={this.handleChanges} />
             </FormGroup></CardStyle>
             
             
             
             <FormGroup>
               <Label for="theme">Theme: </Label>
-              <Input type="text" name="theme" placeholder="Theme of you bash" onChange={this.handleChanges} value={props.parties.theme}/>
+              <Input type="text" name="theme" placeholder="Theme of you bash" onChange={this.handleChanges} />
             </FormGroup>
             
             
             
             <FormGroup>
               <Label for="guests">Number of expected guests: </Label>
-              <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} value={props.parties.guests}/>
+              <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} />
             </FormGroup>
             
             
             
             <FormGroup>
               <Label for="budget">Budget: </Label>
-              <Input type="number" name="budget" placeholder="How much do can you spend?" onChange={this.handleChanges} value={props.parties.budget}/>
+              <Input type="number" name="budget" placeholder="How much do can you spend?" onChange={this.handleChanges} />
             </FormGroup>
             <div>Category:</div>
       <select class="form-control form-control-lg">
