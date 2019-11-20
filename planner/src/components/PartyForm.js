@@ -94,12 +94,14 @@ const PartyForm = props => {
 
 export default PartyForm;
 
-// return (     <div>     <section>
-    
-//       <Link to={"/"}>
-//         Home
-//       </Link>
-//       </section>
+
+return (     
+    <div>    
+    <section>
+      <Link to={"/"}>
+        Home
+      </Link>
+      </section>
    
 //         <Form>
 //             <Field type="text" name="name" placeholder="Name" />
