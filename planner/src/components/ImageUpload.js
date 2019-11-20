@@ -1,13 +1,17 @@
 import React from 'react';
 
-const ImageUploader = () => {
+const ImageUpload = () => {
     return (
       <div>
         <h1>Add photos to your event!</h1>
         <p>Upload photos below</p>
+        <form>
+          <input type="image" src="images/lg" alt="Submit Form" />
+          <button>Submit Image</button>
+        </form>
       </div>
       
       
     );
 };
-export default ImageUploader;
+export default ImageUpload;
