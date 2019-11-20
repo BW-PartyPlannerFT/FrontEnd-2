@@ -5,12 +5,16 @@
 // Button to create new party that redirects you to CreateParty from
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PartyList = () => {
     return (
-      <div>
+      <div className="partyList">
         <h1>Welcome to the Party!</h1>
         <p>List of parties here</p>
+        <Link to="/partyboard">
+          <button>Go To Party Board</button>
+        </Link>
       </div>
     );
 };

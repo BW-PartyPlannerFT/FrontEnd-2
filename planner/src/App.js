@@ -8,7 +8,11 @@ import Nav from './components/Nav';
 import PrivateRoute from './components/PrivateRoute';
 import PartyList from '../src/components/PartyList';
 import PartyForm from './components/PartyForm';
+
 import ImageUpload from './components/ImageUpload';
+
+import PartyBoard from './components/PartyBoard';
+
 function App() {
   return (
     <div className="App">
@@ -18,12 +22,16 @@ function App() {
     <Route path="/signup" component={Signup}/>
 
     <PrivateRoute>
-      <Route exact path='/partyList' component={PartyList}/>
+      <Route exact path='/partylist' component={PartyList}/>
     </PrivateRoute>
     </Switch>
 
     <Route path="/partyform" component={PartyForm}/>
+
     <Route path="/imageupload" component={ImageUpload}/>
+
+    <Route path="/partyboard" component={PartyBoard} />
+
     </div>
   );
 }
