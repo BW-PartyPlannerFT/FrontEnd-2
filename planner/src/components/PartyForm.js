@@ -22,7 +22,7 @@ const PartyForm = props => {
     <form onSubmit={submitForm}>
       <DatePicker note={note} setNote={setNote} rxAddParty={rxAddParty}/>
 
-      <div><button type="submit">Let's Party!</button></div>
+      <div><button type="submit">Let's Party!!</button></div>
     </form>
     </Form>
   );
