@@ -40,8 +40,9 @@ return (
         } */}
        </div>
        <div>
+         <h1 className="party-h1">Select a Party to Plan</h1>
         <Link to="/partyform">
-          <button>ADD NEW PARTY</button>
+          <button className="add-list">ADD PARTY</button>
         </Link>
       </div>
       </>

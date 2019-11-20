@@ -56,7 +56,7 @@ const Signup = props => {
           </label>
           <label>
               {" "}
-            EMAIL:
+             EMAIL:
             <input
               className="email-user"
               type="email"
@@ -67,7 +67,8 @@ const Signup = props => {
             />
           </label>
           <label>
-            PASSWORD:
+              {" "}
+           PASSWORD:
             <input
               className="pass-user"
               type="password"
@@ -78,7 +79,7 @@ const Signup = props => {
             />
           </label>
 
-          <button>Submit</button>
+          <button className="reg-sub">Submit</button>
         </form>
       </div>
     </>

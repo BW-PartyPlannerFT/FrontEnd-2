@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import PartyForm from './components/PartyForm';
 import './components/Signup.css';
+import './components/PartyList.css';
 
 // import CombinedLists from './components/CombinedLists';
 
