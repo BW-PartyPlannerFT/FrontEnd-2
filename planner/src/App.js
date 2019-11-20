@@ -12,7 +12,7 @@ import PartyList from '../src/components/PartyList';
 import ImageUpload from './components/ImageUpload';
 
 import PartyBoard from './components/PartyBoard';
-
+import AddItem from './components/shopList/AddItem';
 
 function App() {
  
@@ -33,8 +33,8 @@ function App() {
     </Switch>
 
     <Route path="/imageupload" component={ImageUpload}/>
-
     <Route path="/partyboard" component={PartyBoard} />
+    <Route path="/additem" component={AddItem} />
 
 
     </div>
