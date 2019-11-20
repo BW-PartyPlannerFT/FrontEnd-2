@@ -4,6 +4,8 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import PartyForm from './components/PartyForm';
+import './components/Signup.css';
+
 // import CombinedLists from './components/CombinedLists';
 
 import PrivateRoute from './components/PrivateRoute';
