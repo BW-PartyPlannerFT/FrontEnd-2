@@ -5,6 +5,62 @@ import {Form, Input, FormGroup, Container, Label} from 'reactstrap';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import {SingleDatePicker} from 'react-dates';
+import styled from "styled-components";
+
+const Card = styled.div`
+width: 40%;
+padding: 10px;
+box-shadow: 1px 1px 5px black;
+border-radius: 10px;
+margin: 20px auto;
+display: flex;
+justify-content: space-between;
+`;
+
+const CardImg = styled.img`
+width: 200px;
+height: 200px
+`;
+
+const CardInfo = styled.div`
+tex-align: left;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+width: 50%;
+`;
+
+const Status = styled.div`
+tex-align: left;
+background: dodgerblue;
+height: 50px;
+vertical-align: middle;
+color: white;
+padding: 1px;
+border-radius: 5px;
+`;
+
+
+const CardStyle = styled.div `    
+    background: lightblue;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in;
+     border: 5px solid black;
+    &:hover {
+      transform: translate(-5px) scale(1.05);
+    }
+
+    `;
+
+const CardTitleSize = styled.h2 `
+font-size: 30px;
+
+`;
+
 
 class DatePicker extends Component {
   constructor(props) {
@@ -17,12 +73,15 @@ class DatePicker extends Component {
   render() {
     return (
       <div>
-        <Container>
+       <Card> 
+         <Container>
           <Form>
-            <FormGroup>
-              <Label for="host">Host: </Label>
+            <CardStyle>
+              <FormGroup>
+            <CardTitleSize><Label for="host">Host: </Label></CardTitleSize>
               <Input type="text" name="host" />
             </FormGroup>
+            </CardStyle>
             <FormGroup>
             <SingleDatePicker
                           // showClearDate={true}
@@ -48,18 +107,27 @@ class DatePicker extends Component {
                           hideKeyboardShortcutsPanel={true}
                         />
             </FormGroup>
-            <FormGroup>
-              <Label for="title">Party Title: </Label>
+           <CardStyle><FormGroup>
+            <CardTitleSize><Label for="title">Party Title: </Label></CardTitleSize>
               <Input type="text" name="title" />
-            </FormGroup>
+            </FormGroup></CardStyle>
+            
+            
+            
             <FormGroup>
               <Label for="theme">Theme: </Label>
               <Input type="text" name="theme" />
             </FormGroup>
+            
+            
+            
             <FormGroup>
               <Label for="number">Number of expected guests: </Label>
               <Input type="text" name="number" />
             </FormGroup>
+            
+            
+            
             <FormGroup>
               <Label for="budget">Budget: </Label>
               <Input type="text" name="budget" />
@@ -72,10 +140,11 @@ class DatePicker extends Component {
         <option>Anniversary Party</option>
         <option>Kid's Birthday Party</option>
         <option>Charity Party</option>
+        <option>Other</option>
         </select>
         <label></label>
           </Form>
-        </Container>
+        </Container></Card>
       </div>
     );
   }
