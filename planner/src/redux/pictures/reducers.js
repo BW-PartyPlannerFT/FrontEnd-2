@@ -1,54 +1,55 @@
-import {GET_PARTY, 
-    GET_PARTY_SUCCESS, 
-    GET_PARTY_FAIL, 
-    ADD_PARTY,  
-    ADD_PARTY_SUCCESS, 
-    ADD_PARTY_FAIL} from './actions';
+import {GET_PICS, 
+    GET_PICS_SUCCESS, 
+    GET_PICS_FAIL, 
+    ADD_PIC, 
+    ADD_PIC_SUCCESS, 
+    ADD_PIC_FAIL} from './actions';
+
 
 const initialState = {
-    parties: [],
+    pictures: [],
     isLoading: false,
     isAdding: false,
     error: null
 }
 
-const partyReducer = (state = initialState, action) => {
+const picturesReducer = (state = initialState, action) => {
     switch(action.type){
-        case GET_PARTY:
+        case GET_PICS:
             return {
                 ...state,
-                parties: [],
+                pictures: [],
                 isLoading: true,
                 error: null
             }
-        case GET_PARTY_SUCCESS:
+        case GET_PICS_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: null,
-                parties: action.payload
+                pictures: action.payload
             }
-        case GET_PARTY_FAIL:
+        case GET_PICS_FAIL:
             return {
                 ...state,
                 isLoading: false,
                 error: action.payload
             }
-        case ADD_PARTY:
+        case ADD_PIC:
             return {
                 ...state,
                 error: null,
                 isAdding: true,
-                parties: action.payload
+                pictures: action.payload
             }
-        case ADD_PARTY_SUCCESS:
+        case ADD_PIC_SUCCESS:
             return {
                 ...state,
                 error: null,
                 isAdding: false,
-                parties: action.payload
+                pictures: action.payload
             }
-        case ADD_PARTY_FAIL:
+        case ADD_PIC_FAIL:
             return {
                 ...state,
                 error: action.payload,
@@ -58,4 +59,4 @@ const partyReducer = (state = initialState, action) => {
             return state
     }
 }
-export default partyReducer;
+export default picturesReducer;

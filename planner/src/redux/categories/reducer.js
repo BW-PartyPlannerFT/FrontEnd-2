@@ -1,54 +1,54 @@
-import {GET_PARTY, 
-    GET_PARTY_SUCCESS, 
-    GET_PARTY_FAIL, 
-    ADD_PARTY,  
-    ADD_PARTY_SUCCESS, 
-    ADD_PARTY_FAIL} from './actions';
+import {GET_CATEGORY, 
+    GET_CATEGORY_SUCCESS, 
+    GET_CATEGORY_FAIL, 
+    ADD_CATEGORY,  
+    ADD_CATEGORY_SUCCESS, 
+    ADD_CATEGORY_FAIL} from './actions';
 
 const initialState = {
-    parties: [],
+    category: '',
     isLoading: false,
     isAdding: false,
     error: null
 }
 
-const partyReducer = (state = initialState, action) => {
+const categoryReducer = (state = initialState, action) => {
     switch(action.type){
-        case GET_PARTY:
+        case GET_CATEGORY:
             return {
                 ...state,
-                parties: [],
+                category: '',
                 isLoading: true,
                 error: null
             }
-        case GET_PARTY_SUCCESS:
+        case GET_CATEGORY_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 error: null,
-                parties: action.payload
+                category: action.payload
             }
-        case GET_PARTY_FAIL:
+        case GET_CATEGORY_FAIL:
             return {
                 ...state,
                 isLoading: false,
                 error: action.payload
             }
-        case ADD_PARTY:
+        case ADD_CATEGORY:
             return {
                 ...state,
                 error: null,
                 isAdding: true,
-                parties: action.payload
+                category: action.payload
             }
-        case ADD_PARTY_SUCCESS:
+        case ADD_CATEGORY_SUCCESS:
             return {
                 ...state,
                 error: null,
                 isAdding: false,
-                parties: action.payload
+                category: action.payload
             }
-        case ADD_PARTY_FAIL:
+        case ADD_CATEGORY_FAIL:
             return {
                 ...state,
                 error: action.payload,
@@ -58,4 +58,4 @@ const partyReducer = (state = initialState, action) => {
             return state
     }
 }
-export default partyReducer;
+export default categoryReducer;

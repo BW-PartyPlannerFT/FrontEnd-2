@@ -32,14 +32,15 @@ function App() {
 
       <Route exact path='/partyList' component={PartyList}/>
       <Route path="/partyform" component={PartyForm}/>
+      <Route path="/imageupload" component={ImageUpload}/>
+      <Route path="/partyboard" component={PartyBoard} />
+      <Route path="/additem" component={AddItem} />
+      <Route path="/shoplist" component={ShopList} />
       {/* <Route path='/lists' component={CombinedLists}/> */}
     </PrivateRoute>
     </Switch>
 
-    <Route path="/imageupload" component={ImageUpload}/>
-    <Route path="/partyboard" component={PartyBoard} />
-    <Route path="/additem" component={AddItem} />
-    <Route path="/shoplist" component={ShopList} />
+    
 
     </div>
   
