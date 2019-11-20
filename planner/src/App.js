@@ -11,6 +11,14 @@ import PartyList from '../src/components/PartyList';
 
 
 
+
+import PartyForm from './components/PartyForm';
+
+import ImageUpload from './components/ImageUpload';
+
+import PartyBoard from './components/PartyBoard';
+
+
 function App() {
  
   return (
@@ -28,6 +36,14 @@ function App() {
       {/* <Route path='/lists' component={CombinedLists}/> */}
     </PrivateRoute>
     </Switch>
+
+    <Route path="/partyform" component={PartyForm}/>
+
+    <Route path="/imageupload" component={ImageUpload}/>
+
+    <Route path="/partyboard" component={PartyBoard} />
+
+
     </div>
   
   );
