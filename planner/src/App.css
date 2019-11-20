@@ -1,3 +1,65 @@
 .App {
   text-align: center;
 }
+.user-login{
+  justify-content: center;
+  border: 1px solid black;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  right: 0;
+  left: 0;
+}
+.user-password{
+  border: 1px solid black;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+  left: 0;
+}
+.log{
+  border: 1px solid black;
+  justify-content: center;
+  border: 1px solid black;
+  width: 20%;
+  padding: 12px 20px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+  text-align: center;
+  position: absolute;
+  bottom: 30%;
+  right: 0;
+  left: 0;
+}
+.log:hover{
+background: grey;
+}
+.sign-up{
+  border: none;
+  width: 20%;
+  padding: 12px 20px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+  text-align: center;
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  left: 0;
+}
+.sign-up:hover{
+  color: gray;
+}

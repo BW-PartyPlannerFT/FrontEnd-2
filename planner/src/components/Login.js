@@ -41,9 +41,8 @@ const Login = props => {
       <Nav />
       <div className="Login">
         <form onSubmit={login}>
-          <label className="user-login">
-            Username:
-            <input
+          <label>
+            <input className="user-login"
               type="text"
               name="username"
               placeholder="Enter Username"
@@ -52,18 +51,17 @@ const Login = props => {
             />
           </label>
           <label>
-            Password:
-            <input
+            <input className="user-password"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Enter Password"
               value={credentials.password}
               onChange={handleChange}
             />
           </label>
-          <button>Login</button>
+          <button className="log">Login</button>
           <Link to="/Signup">
-            <button>Sign up</button>
+            <button className="sign-up">Sign up</button>
           </Link>
         </form>
       </div>
