@@ -5,6 +5,7 @@
 // Button to create new party that redirects you to PartyForm
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import PartyBoard from './PartyBoard';
 
@@ -12,14 +13,14 @@ import PartyBoard from './PartyBoard';
 
 const PartyList = (props) => {
   
-    return (
-      <div>
-        
-        <h1>{props.parties.map(party => {
-          return <PartyBoard/>
-        })}</h1>
+    return (      
+
+      <div className="partyList">
+        <h1>Welcome to the Party!</h1>
         <p>List of parties here</p>
-       
+        <Link to="/partyboard">
+          <button>Go To Party Board</button>
+        </Link>
       </div>
     );
 };

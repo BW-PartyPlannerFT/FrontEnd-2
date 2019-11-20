@@ -25,6 +25,7 @@ const Login = (props) => {
     const login = e => {
         e.preventDefault();
         setIsLoading(true);
+
         axios
             .post("https://partyplanner-b.herokuapp.com/api/auth/login", credentials)
             .then(res => {
@@ -48,14 +49,15 @@ const Login = (props) => {
                    Password:
                    <input type='password' name='password' placeholder='Password' value={credentials.password} onChange={handleChange}/>
                </label>
+                <button>Login</button>          
+               <Link to="/Signup">
+                   <button>Sign up</button>
+               </Link>
 
-                <button>Login</button>
-            
             </form> 
             <Link to="/Signup">
                 <button>Sign up</button>
             </Link>
-
         </div>
         <div>
             {isLoading && (
@@ -66,5 +68,7 @@ const Login = (props) => {
         </>
       );
     }
-  
+
   export default Login;
+  
+

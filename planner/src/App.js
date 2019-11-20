@@ -11,9 +11,6 @@ import PartyList from '../src/components/PartyList';
 
 
 
-
-
-
 function App() {
  
   return (
@@ -25,6 +22,7 @@ function App() {
     <Route path="/signup" component={Signup}/>
 
     <PrivateRoute>
+
       <Route exact path='/partyList' component={PartyList}/>
       <Route path="/partyform" component={PartyForm}/>
       {/* <Route path='/lists' component={CombinedLists}/> */}
