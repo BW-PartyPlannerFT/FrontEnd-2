@@ -9,10 +9,7 @@ import React from 'react';
 const Images= () => {
     return (
       <div>
-          <form>
-          <input type="image" src="images/lg" alt="Submit Form" />
-          <button>Submit Image</button>
-        </form>
+          
       </div>
     );
 };

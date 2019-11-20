@@ -19,30 +19,6 @@ display: flex;
 justify-content: space-between;
 `;
 
-const CardImg = styled.img`
-width: 200px;
-height: 200px
-`;
-
-const CardInfo = styled.div`
-tex-align: left;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-width: 50%;
-`;
-
-const Status = styled.div`
-tex-align: left;
-background: dodgerblue;
-height: 50px;
-vertical-align: middle;
-color: white;
-padding: 1px;
-border-radius: 5px;
-`;
-
-
 const CardStyle = styled.div `    
     background: lightblue;
     color: black;
