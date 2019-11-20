@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import PrivateRoute from './components/PrivateRoute';
 import PartyList from '../src/components/PartyList';
 import PartyForm from './components/PartyForm';
+import PartyBoard from './components/PartyBoard';
 
 function App() {
   return (
@@ -18,12 +19,12 @@ function App() {
     <Route path="/signup" component={Signup}/>
 
     <PrivateRoute>
-      <Route exact path='/partyList' component={PartyList}/>
+      <Route exact path='/partylist' component={PartyList}/>
     </PrivateRoute>
     </Switch>
 
     <Route path="/partyform" component={PartyForm}/>
-
+    <Route path="/partyboard" component={PartyBoard} />
     </div>
   );
 }
