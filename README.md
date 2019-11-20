@@ -1,4 +1,4 @@
-# PARTY PLANNER APP
+# PARTY PLANNER APP!!
 
 ## Product Canvas:
  https://docs.google.com/document/d/1MGbPnIkm-NsHwQ5bwlm8xkMDbVRCDsYq_neH6J6bcBY/edit#

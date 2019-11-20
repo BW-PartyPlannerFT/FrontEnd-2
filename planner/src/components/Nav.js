@@ -7,7 +7,8 @@ const Nav = () => {
     <div className="header">
       <NavLink to="/">Login</NavLink>
       <NavLink to="/signup">Sign Up</NavLink>
-      <h1>Pary Planner</h1>
+      <NavLink to="/PartyForm">Party Form</NavLink>
+      <NavLink to="/ImageUpload">Image Uploader</NavLink>
     </div>
   );
 };
