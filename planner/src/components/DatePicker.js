@@ -109,12 +109,13 @@ class DatePicker extends Component {
                           }
                           name="date"
                           value={this.props.note.date}
-                          // inputIconPosition="after"
-                          // small={true}
-                          // block={false}
-                          // numberOfMonths={1}
-                          // date={this.state.date}
-                          onDateChange={this.handleChanges}
+                          onChange={this.handleChanges}
+                          inputIconPosition="after"
+                          small={true}
+                          block={false}
+                          numberOfMonths={1}
+                          date={this.state.date}
+                          onDateChange={date => this.handleDateChange(date)}
                           focused={this.state.focused}
                           onFocusChange={({ focused }) =>
                             this.setState({ focused })
