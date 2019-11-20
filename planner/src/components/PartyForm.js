@@ -7,20 +7,20 @@ import {rxAddParty} from '../redux/parties/actions';
 
 
 const PartyForm = props => {
-  console.log("props", props);
-  const [note, setNote] = useState({ title: "", body: "" });
+  console.log("party form props", props);
+  const [note, setNote] = useState({ id:"", party_name: "", host: "", guests: "", theme: "", date: "", budget: "" });
 
   const submitForm = e => {
     e.preventDefault();
-    props.addNewNote(note);
-    setNote({ title: "", body: "" });
+    props.rxAddParty(note);
+    setNote({ party_name: "", host: "", guests:"", theme: "", date: "", budget: ""});
   };
 
 
   return (
     <Form>
     <form onSubmit={submitForm}>
-      <DatePicker />
+      <DatePicker note={note} setNote={setNote} rxAddParty={rxAddParty}/>
 
       <div><button type="submit">Let's Party!</button></div>
     </form>

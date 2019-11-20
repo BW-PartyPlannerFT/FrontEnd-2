@@ -5,7 +5,7 @@
 // Renders GenericList, ShoppingList, TodoList, GenericList, and Pictures
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 function Party() {
     const [partyb, setPartyB]= useState([]);
