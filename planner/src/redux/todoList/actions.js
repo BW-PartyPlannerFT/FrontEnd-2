@@ -22,10 +22,6 @@ export const rxGetTodo = () => dispatch=> {
 }
 
 
-export const ADD_TODO = 'ADD_PARTY';
-export const ADD_TODO_SUCCESS = 'ADD_PARTY_SUCCESS';
-export const ADD_TODO_FAIL = 'ADD_PARTY_FAIL';
-
 export const rxAddTodo = todo => dispatch => {
     dispatch({type: ADD_TODO, payload: "New todo being added..."});
     axiosWithAuth()
@@ -33,7 +29,3 @@ export const rxAddTodo = todo => dispatch => {
         .then(res => dispatch({type: ADD_TODO_SUCCESS, payload: res.data}))
         .catch(err => dispatch({type: ADD_TODO_FAIL, payload: err.response}))
 }
-
-
-export const EDIT_TODO = 'EDIT_PARTY';
-export const DELETE_TODO = 'DELETE_PARTY';

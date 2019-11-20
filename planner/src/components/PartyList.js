@@ -18,26 +18,27 @@ const PartyList = (props) => {
     props.rxGetParty();
   },[])
   
-  
-  if(props.isLoading){
-    return <h2><span role="img" aria-labelledby='jsx-ally/accessible-emoji'>🔃</span></h2>
-}
+
+
+
+if(props.isLoading){
+  return <h2><span role="img" aria-labelledby='jsx-ally/accessible-emoji'>🔃</span></h2>
+}else{
 return (
   <>
     <div>
-        {/* {props.error && <p>{props.error}</p>} */}
-        {/* {props.parties.map(item => { */}
-          
-            {/* return ( */}
-                {/* <PartyBoard key={item.id} 
+        {props.error && <p>{props.error}</p>} 
+        {props.parties.map(item => {
+             return ( 
+                <PartyBoard key={item.id} 
                             party_name={item.party_name} 
                             host={item.host} 
                             guests={item.guests}
                             theme={item.theme}
                             date={item.date}
                             budget={item.budget}/>
-            )
-        } */}
+             )})}
+      
        </div>
        <div>
         <Link to="/partyform">
@@ -46,16 +47,16 @@ return (
       </div>
       </>
     );
-};
-
-
-const mapStateToProps = state => {
-  return {
-    parties: state.parties,
-    error: state.error,
-    isLoading: state.isLoading
-  }
+  };
 }
+
+  const mapStateToProps = state => {
+    return {
+      parties: state.parties,
+      error: state.error,
+      isLoading: state.isLoading
+    }
+  }
 
 
 export default connect(mapStateToProps, {rxGetParty})(PartyList); 

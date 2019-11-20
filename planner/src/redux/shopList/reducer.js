@@ -1,25 +1,25 @@
-import {GET_TODO, 
-    GET_TODO_SUCCESS, 
-    GET_TODO_FAIL, 
-    ADD_TODO,
-    ADD_TODO_SUCCESS,
-    ADD_TODO_FAIL, 
-    CLEAR_TODO, 
-    TOGGLE_COMPLETED
+import {GET_ITEM, 
+    GET_ITEM_SUCCESS, 
+    GET_ITEM_FAIL, 
+    ADD_ITEM,
+    ADD_ITEM_SUCCESS,
+    ADD_ITEM_FAIL, 
+    CLEAR_ITEM, 
+    TOGGLE_PURCHASED
     } from './actions';
 
     const initialState = {
         id: '',
-        todo_lists: [],
+        item: [],
         completed: false,
         isLoading: false,
         isAdding: false,
         error: null
     }
 
-const todoReducer = (state = initialState, action) => {
+const shopReducer = (state = initialState, action) => {
     switch(action.type) {
-        case GET_TODO:
+        case GET_ITEM:
             return {
                 ...state,
                 todo_lists: [],
@@ -28,7 +28,7 @@ const todoReducer = (state = initialState, action) => {
                 isLoading: true,
                 error: null
             }
-        case GET_TODO_SUCCESS:
+        case GET_ITEM_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
@@ -37,59 +37,59 @@ const todoReducer = (state = initialState, action) => {
                 id: '',
                 completed: false
             }
-        case GET_TODO_FAIL:
+        case GET_ITEM_FAIL:
             return {
                 ...state,
                 isLoading: false,
                 error: action.payload
             }
-        case ADD_TODO:
+        case ADD_ITEM:
             let newItem = {
-                todo_lists: action.payload,
+                item: action.payload,
                 completed: false,
             };
             return {
                 ...state,
-                todo_lists: [...state.state.todo_lists, newItem]
+                item: [...state.state.todo_lists, newItem]
             };
-        case ADD_TODO_SUCCESS:
+        case ADD_ITEM_SUCCESS:
              return {
                 ...state,
                 error: null,
                 isAdding: false,
-                todo_lists: action.payload,
+                item: action.payload,
                 id: ''
             }
-        case ADD_TODO_FAIL:
+        case ADD_ITEM_FAIL:
              return {
                  ...state,
                 error: action.payload,
                 isAdding: false,
             }
 
-        case TOGGLE_COMPLETED:
-            let updatedTodos = state.todo_lists.task.map(item => {
-                if(item.id === action.payload) {
+        case TOGGLE_PURCHASED:
+            let updatedItems = state.item.task.map(items => {
+                if(items.id === action.payload) {
                     return {
-                        ...item,
-                        completed: !item.completed
+                        ...items,
+                        completed: !items.purchased
                     };
                 }else {
-                    return item;
+                    return items;
                 }
             });
                 return {
                     ...state,
-                    todo_lists: updatedTodos
+                    items: updatedItems
                 };
                 
-        case CLEAR_TODO:
+        case CLEAR_ITEM:
             return {
                 ...state,
-                todo_list: state.todo_list.task.filter(item => !item.completed)
+                items: state.item.task.filter(items => !items.completed)
             };
             default:
                 return state;        
     }
 }
-export default todoReducer;
+export default shopReducer;

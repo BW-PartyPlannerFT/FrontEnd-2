@@ -5,7 +5,9 @@ import {GET_PARTY,
     ADD_PARTY_SUCCESS, 
     ADD_PARTY_FAIL} from './actions';
 
+let nextPartyID = 9;
 const initialState = {
+    id: ++nextPartyID,
     parties: [],
     isLoading: false,
     isAdding: false,
@@ -18,6 +20,7 @@ const partyReducer = (state = initialState, action) => {
             return {
                 ...state,
                 parties: [],
+                id: '',
                 isLoading: true,
                 error: null
             }
@@ -26,7 +29,8 @@ const partyReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: null,
-                parties: action.payload
+                parties: action.payload,
+                
             }
         case GET_PARTY_FAIL:
             return {
@@ -39,7 +43,8 @@ const partyReducer = (state = initialState, action) => {
                 ...state,
                 error: null,
                 isAdding: true,
-                parties: action.payload
+                parties: action.payload,
+                id: ''
             }
         case ADD_PARTY_SUCCESS:
             return {

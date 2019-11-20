@@ -5,7 +5,7 @@ export const axiosWithAuth = () => {
     return axios.create({
         baseURL: 'https://partyplanner-b.herokuapp.com/api',
         headers: {
-            authorization: sessionStorage.getItem('token')
+            authorization: localStorage.getItem('token')
         }
     });
 };
