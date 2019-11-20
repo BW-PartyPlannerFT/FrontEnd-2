@@ -3,8 +3,9 @@
 //State will be managed locally 
 //axios post request.
 //Once signed up, onClick will redirect to login pg. 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 // import { Link } from 'react-router-dom';
+import Nav from './Nav';
 import axios from 'axios';
 
 
@@ -29,7 +30,7 @@ const Signup = (props) => {
             .post('https://partyplanner-b.herokuapp.com/api/auth/register', newCreds)
             .then(res => {
                 console.log(res.data, res);
-                sessionStorage.setItem('token', res.data.user);
+                localStorage.setItem('token', res.data.user);
                 props.history.push('/');
                 setNewCreds('')
             })
@@ -39,6 +40,8 @@ const Signup = (props) => {
         
 
     return(
+        <>
+        <Nav/>
         <div className="Signup-Links">
             <h1>REGISTER</h1>
             <form onSubmit={signup}>
@@ -59,6 +62,7 @@ const Signup = (props) => {
             
             </form>
         </div>
+        </>
     )
 }
 export default Signup;
