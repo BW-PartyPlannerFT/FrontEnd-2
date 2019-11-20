@@ -18,8 +18,8 @@ const PartyList = (props) => {
       <div className="partyList">
         <h1>Welcome to the Party!</h1>
         <p>List of parties here</p>
-        <Link to="/partyboard">
-          <button>Go To Party Board</button>
+        <Link to="/partyform">
+          <button>ADD NEW PARTY</button>
         </Link>
       </div>
     );

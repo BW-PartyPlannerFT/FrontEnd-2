@@ -1,7 +1,9 @@
 
 import React, { useState } from "react";
+import {connect} from 'react-redux';
 import DatePicker from "./DatePicker";
 import { Form } from 'reactstrap';
+import {rxAddParty} from '../redux/parties/actions';
 
 
 const PartyForm = props => {
@@ -26,4 +28,13 @@ const PartyForm = props => {
   );
 };
 
-export default PartyForm;
+const mapStateToProps = state => {
+  return {
+    parties: state.parties,
+    error: state.error,
+    isAdding: state.isAdding
+  }
+}
+
+
+export default connect(mapStateToProps, {rxAddParty})(PartyForm);
