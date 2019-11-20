@@ -34,7 +34,7 @@ const Signup = (props) => {
                 props.history.push('/');
                 setNewCreds('')
             })
-            .catch(err => alert('There was an error in signing up', err));
+            .catch(err => console.log('There was an error in signing up', err));
         }
     
         

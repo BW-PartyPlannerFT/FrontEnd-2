@@ -76,14 +76,15 @@ class DatePicker extends Component {
   }
 
   handleChanges = e => {
-    e.preventDefault();
+    
+    // console.log(this.props.note.date);
     this.props.setNote({
       ...this.props.note,
       [e.target.name]: e.target.value
     });
   }
 
-  render(props) {
+  render() {
     return (
       <div>
        <Card> 
@@ -92,7 +93,7 @@ class DatePicker extends Component {
             <CardStyle>
               <FormGroup>
             <CardTitleSize><Label for="host">Host: </Label></CardTitleSize>
-              <Input type="text" name="host" placeholder='Who is hosting?' onChange={this.handleChanges} />
+              <Input type="text" name="host" placeholder='Who is hosting?' onChange={this.handleChanges} value={this.props.note.host}/>
             </FormGroup>
             </CardStyle>
             <FormGroup>
@@ -106,12 +107,14 @@ class DatePicker extends Component {
                               />
                             </svg>
                           }
-                          inputIconPosition="after"
-                          small={true}
-                          block={false}
-                          numberOfMonths={1}
-                          date={this.state.date}
-                          onDateChange={date => this.handleDateChange(date)}
+                          name="date"
+                          value={this.props.note.date}
+                          // inputIconPosition="after"
+                          // small={true}
+                          // block={false}
+                          // numberOfMonths={1}
+                          // date={this.state.date}
+                          onDateChange={this.handleChanges}
                           focused={this.state.focused}
                           onFocusChange={({ focused }) =>
                             this.setState({ focused })
@@ -122,28 +125,28 @@ class DatePicker extends Component {
             </FormGroup>
            <CardStyle><FormGroup>
             <CardTitleSize><Label for="title">Party Title: </Label></CardTitleSize>
-              <Input type="text" name="title" placeholder="Enter title of event.." onChange={this.handleChanges} />
+              <Input type="text" name="title" placeholder="Enter title of event.." onChange={this.handleChanges} value={this.props.note.party_name}/>
             </FormGroup></CardStyle>
             
             
             
             <FormGroup>
               <Label for="theme">Theme: </Label>
-              <Input type="text" name="theme" placeholder="Theme of you bash" onChange={this.handleChanges} />
+              <Input type="text" name="theme" placeholder="Theme of you bash" onChange={this.handleChanges} value={this.props.note.theme}/>
             </FormGroup>
             
             
             
             <FormGroup>
               <Label for="guests">Number of expected guests: </Label>
-              <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} />
+              <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} value={this.props.note.guests}/>
             </FormGroup>
             
             
             
             <FormGroup>
               <Label for="budget">Budget: </Label>
-              <Input type="number" name="budget" placeholder="How much do can you spend?" onChange={this.handleChanges} />
+              <Input type="number" name="budget" placeholder="How much do can you spend?" onChange={this.handleChanges} value={this.props.note.budget}/>
             </FormGroup>
             <div>Category:</div>
       <select class="form-control form-control-lg">
@@ -165,7 +168,7 @@ class DatePicker extends Component {
 
 const mapStateToProps = state => {
   return {
-    parties: state.parties,
+    parties: state.partyReducer.parties,
   }
 }
 
