@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
+import userpic from "./userpic.jpg";
 
 const Login = props => {
   const [credentials, setCredentials] = useState({
@@ -42,6 +43,7 @@ const Login = props => {
       <div className="Login">
         <form onSubmit={login}>
           <label>
+            <img className="user-pic" src={userpic} />
             <input className="user-login"
               type="text"
               name="username"
