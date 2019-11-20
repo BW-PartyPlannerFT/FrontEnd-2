@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import DatePicker from "./DatePicker";
-import { Form, Input } from 'reactstrap';
+import { Form } from 'reactstrap';
  
 
 const PartyForm = props => {
   console.log("props", props);
   const [note, setNote] = useState({ title: "", body: "" });
-
-  const handleChanges = e => {
-    console.log(note);
-    setNote({ ...note, [e.target.name]: e.target.value });
-  };
 
   const submitForm = e => {
     e.preventDefault();

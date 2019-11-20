@@ -8,7 +8,7 @@ import Nav from './components/Nav';
 import PrivateRoute from './components/PrivateRoute';
 import PartyList from '../src/components/PartyList';
 import PartyForm from './components/PartyForm';
-
+import ImageUpload from './components/ImageUpload';
 function App() {
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App() {
     </Switch>
 
     <Route path="/partyform" component={PartyForm}/>
-
+    <Route path="/imageupload" component={ImageUpload}/>
     </div>
   );
 }
