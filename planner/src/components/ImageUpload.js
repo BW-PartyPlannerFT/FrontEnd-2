@@ -5,13 +5,13 @@ import styled from "styled-components";
 
 
 const Card = styled.div`
-width: 50%;
+width: 40%;
 padding: 10px;
 box-shadow: 1px 1px 5px black;
 border-radius: 10px;
 margin: 20px auto;
 display: flex;
-justify-content: space-between;
+justify-content: center;
 `;
 
 const CardStyle = styled.div `    

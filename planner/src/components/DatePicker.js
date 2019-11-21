@@ -9,6 +9,14 @@ import 'react-dates/lib/css/_datepicker.css';
 import {SingleDatePicker} from 'react-dates';
 import styled from "styled-components";
 
+
+const BG = styled.body `
+
+background-image: url('party.jpg');
+background-size: cover;
+background-position: center;
+`;
+
 const Card = styled.div`
 width: 40%;
 background-color: white;
@@ -63,7 +71,7 @@ class DatePicker extends Component {
 
   render() {
     return (
-      <div>
+      <BG><div>
        <Card> 
          <Container>
           <Form>
@@ -104,8 +112,8 @@ class DatePicker extends Component {
 
 
            <CardStyle><FormGroup>
-            <CardTitleSize><Label for="title">Party Title: </Label></CardTitleSize>
-              <Input type="text" name="title" placeholder="Enter title of event..." onChange={this.handleChanges} value={this.props.note.party_name}/>
+            <CardTitleSize><Label for="party_name">Party Title: </Label></CardTitleSize>
+              <Input type="text" name="party_name" placeholder="Enter title of event..." onChange={this.handleChanges} value={this.props.note.party_name}/>
             </FormGroup></CardStyle>
             
              <CardStyle><FormGroup>
@@ -147,7 +155,7 @@ class DatePicker extends Component {
         <label></label>
           </Form>
         </Container></Card>
-      </div>
+      </div></BG>
     );
   }
 }
