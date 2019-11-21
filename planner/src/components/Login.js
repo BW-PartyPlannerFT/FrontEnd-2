@@ -14,6 +14,7 @@ const Login = props => {
     password: ""
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({ username: "", password: "" });
 
   //   console.log("Cred", credentials);
   const handleChange = e => {
@@ -22,19 +23,33 @@ const Login = props => {
       [e.target.name]: e.target.value
     });
   };
-
+  const validateForm = () => {
+    if (credentials.username.length === 0) {
+      setErrors({ ...errors, username: "Sorry, not valid" });
+      return false;
+    }
+    return true;
+  };
   const login = e => {
     e.preventDefault();
     setIsLoading(true);
 
-    axios
-      .post("https://partyplanner-b.herokuapp.com/api/auth/login", credentials)
-      .then(res => {
-        console.log("Response from login", res.data);
-        localStorage.setItem("token", res.data.user);
-        props.history.push("/partyList");
-      })
-      .catch(err => alert(err, "There was an error in logging in", err));
+    const isvalidform = validateForm();
+    if (isvalidform) {
+      axios
+        .post(
+          "https://partyplanner-b.herokuapp.com/api/auth/login",
+          credentials
+        )
+        .then(res => {
+          console.log("Response from login", res.data);
+          localStorage.setItem("token", res.data.token);
+          props.history.push("/partyList");
+        })
+        .catch(err =>
+          console.log(err, "There was an error in logging in", err)
+        );
+    }
   };
 
   return (
@@ -44,7 +59,8 @@ const Login = props => {
         <form onSubmit={login}>
           <label>
             <img className="user-pic" src={userpic} />
-            <input className="user-login"
+            <input
+              className="user-login"
               type="text"
               name="username"
               placeholder="Enter Username"
@@ -52,8 +68,10 @@ const Login = props => {
               onChange={handleChange}
             />
           </label>
+          {errors.username}
           <label>
-            <input className="user-password"
+            <input
+              className="user-password"
               type="password"
               name="password"
               placeholder="Enter Password"
@@ -61,6 +79,7 @@ const Login = props => {
               onChange={handleChange}
             />
           </label>
+          {errors.password}
           <button className="log">Login</button>
           <Link to="/Signup">
             <button className="sign-up">Sign up</button>
@@ -76,5 +95,4 @@ const Login = props => {
     </>
   );
 };
-
 export default Login;
