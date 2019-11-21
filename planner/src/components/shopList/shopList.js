@@ -10,7 +10,7 @@ function ShopList() {
   const [list, setList] = useState({
     shop_list: ""
   });
-  const stateFormChange = e => {
+  const stateFormChang = e => {
     setList({
       ...list,
       [e.target.member]: e.target.value
