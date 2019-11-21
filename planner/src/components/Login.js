@@ -60,6 +60,7 @@ const Login = props => {
     <>
       <Nav />
       <div className="Login">
+        <h1 className="header-1">Party Planner</h1>
         <form onSubmit={login}>
           <label>
             <img className="user-pic" src={userpic} />
