@@ -63,3 +63,9 @@
   right: 0;
   left: 24%;
 }
+.user-err{
+  color: red;
+}
+.pass-err{
+  color: red;
+}

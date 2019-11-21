@@ -77,3 +77,9 @@ background: grey;
 .sign-up:hover{
   color: gray;
 }
+.log-err{
+  color: red;
+}
+.pass-err{
+  color: red;
+}

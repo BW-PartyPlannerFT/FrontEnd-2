@@ -72,7 +72,10 @@ const Login = props => {
               onChange={handleChange}
             />
           </label>
+          <div
+          className="log-err">
           {errors.username}
+          </div>
           <label>
             <input
               className="user-password"
@@ -83,7 +86,10 @@ const Login = props => {
               onChange={handleChange}
             />
           </label>
+          <div
+          className="pass-err">
           {errors.password}
+          </div>
           <button className="log">Login</button>
           <Link to="/Signup">
             <button className="sign-up">Sign up</button>

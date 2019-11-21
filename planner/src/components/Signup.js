@@ -71,7 +71,10 @@ const Signup = props => {
               onChange={handleChange}
             />
           </label>
+          <div
+          className="user-err">
           {errors.username}
+          </div>
           <label>
             {" "}
             {/* EMAIL: */}
@@ -84,10 +87,13 @@ const Signup = props => {
               onChange={handleChange}
             />
           </label>
+          <div
+          className="pass-err">
           {errors.password}
+          </div>
           <label>
-             {" "}
-            {/* PASSWORD: */} 
+            {" "}
+            {/* PASSWORD: */}
             <input
               className="pass-user"
               type="password"
