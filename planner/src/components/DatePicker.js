@@ -136,18 +136,10 @@ class DatePicker extends Component {
             </FormGroup> </CardStyle>
 
             
-      <CardTitleSize>  <div>Category:</div> </CardTitleSize>
-      <select class="form-control form-control-lg">
-        <option>Graduation Party</option>
-        <option>Birthday Party</option>
-        <option>Surprise Party</option>
-        <option>Garden Party</option>
-        <option>Dinner Party</option>
-        <option>Cocktail Party</option>
-        <option>Tea Party</option>
-        <option>Showers</option>
-        </select>
-        <label></label>
+            <CardStyle><FormGroup>
+            <CardTitleSize><Label for="category">Category: </Label> </CardTitleSize>
+              <Input type="text" name="category" placeholder="What type of party is this?" onChange={this.handleChanges} value={this.props.note.category}/>
+            </FormGroup> </CardStyle>
           </Form>
         </Container></Card>
       </div></BG>

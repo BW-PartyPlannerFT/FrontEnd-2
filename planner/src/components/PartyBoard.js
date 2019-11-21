@@ -30,6 +30,7 @@ const PartyBoard = props => {
                 <li>date: {props.date}</li>
                 <li>date: {props.date}</li>
                 <li>budget: {props.budget}</li>
+                <li>category: {props.category}</li>
                 
             </ul>
             
