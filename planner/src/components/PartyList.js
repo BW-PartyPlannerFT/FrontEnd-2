@@ -34,6 +34,11 @@ const Title = styled.div`
 `;
 
 const PartyList = (props) => {
+  function routeToParty(e, item){
+    e.preventDefault();
+    props.history.push('/')
+  }
+
   useEffect(() => {
     props.rxGetParty();
   },[])
@@ -49,8 +54,13 @@ if(props.isLoading){
 
       return (
         <>
+
         
        <section className="initial-party-page-section"><Title><h1>Choose Party to Plan</h1></Title><Card>
+
+        <h1>Choose Party to Plan</h1>
+        <div>
+
         <PartyBoard key={item.id} 
                                party_name={item.party_name} 
                                host={item.host} 
@@ -58,7 +68,13 @@ if(props.isLoading){
                                theme={item.theme}
                                 date={item.date}
                                 budget={item.budget}
+
                                 category={item.id=props.category.id ? props.category : null}/></Card></section>
+
+                                category={item.id=props.category.id ? props.category : null}
+                                onClick={e => routeToParty(e, item)}/>
+        </div>
+
         </>
       )
     })} 
@@ -78,6 +94,7 @@ if(props.isLoading){
   const mapStateToProps = state => {
     return {
       parties: state.partyReducer.parties,
+      id: state.partyReducer.id,
       error: state.partyReducer.error,
       isLoading: state.partyReducer.isLoading,
       category: state.categoryReducer.category,

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-// import styled from "styled-components";
-import axios from 'axios';
+import React, { useState } from 'react';
+import Pictures from './Pictures';
+import {connect} from 'react-redux';
+import {rxAddPics} from '../../src/redux/pictures/actions';
 import styled from "styled-components";
-
 
 const Card = styled.div`
 width: 40%;
@@ -29,48 +29,53 @@ const CardStyle = styled.div `
 
     `;
 
-class ImageUpload extends Component {
-  state = {
-    selectedFile: null
-  }
+const ImageUpload = (props) => {
+  console.log('ImageUpload props', props);
+  const [input, setInput] = useState('');
 
-  fileSelectedHandler = event => {
-    this.setState({
-      selectedFile: event.target.files[0]
-    })
 
-  }
-  fileUploadHandler = () => {
-    const fd = new FormData();
-    fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('https://partyplanner-b.herkuapp.com/api/parties', fd, {
-    onUploadProgress: progressEvent => {
-      console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100 ) + '%' );
-    }
-  })
-    .then(res => {
-      console.log(res);
-    });
-}
+  const handleChanges = e => {
+    setInput({...input, [e.target.name] : e.target.value});
+  };
 
-render() {
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.rxAddPics(input);
+    setInput({id: '', url: ''});
+    // props.history.push('/partyList');
+    setInput('')
+};
     return (
-     <Card> <CardStyle><div>
-        <h1>Add photos to your event!</h1>
-        <p>Upload photos below</p>
-        <form>
-          <input 
-          style={{display: 'none'}}
-          type="image" src="images/lg" alt="Submit Form" 
-          onChange={this.fileSelectedHandler} 
-          ref={fileInput => this.fileInput = fileInput}/>
-          <button onClick={() => this.fileInput.click}>Upload</button>
-          <button onClick={this.fileUploadHandler}>Submit Image</button>
+      <>
+     <Card> 
+       <CardStyle>
+         <div>
+           <h1>Add photos to your event!</h1>
+           <p>Upload photos below</p>
+           <form onSubmit={handleSubmit}>
+             <input type="url" name='url' id='url' 
+             onChange={handleChanges} 
+             value={input.url}
+             name='url'
+             placeholder='Enter image url address here...'
+          />
+          <button>Add Image url</button>
         </form>
-      </div></CardStyle>
+      </div>
+      </CardStyle>
       </Card>
-      
+      <Pictures image={input}/>
+      </>
     );
 }
-};
-export default ImageUpload;
+
+const mapStateToProps = state => {
+  return {
+    url: state.picturesReducer.url,
+    id: state.picturesReducer.id,
+    error: state.picturesReducer.error,
+    isLoading: state.picturesReducer.isLoading
+  }
+}
+
+export default connect(mapStateToProps, {rxAddPics})(ImageUpload); 

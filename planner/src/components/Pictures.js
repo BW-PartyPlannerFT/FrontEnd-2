@@ -6,11 +6,12 @@
 import React from 'react';
 
 
-const Images= () => {
+const Pictures = (props) => {
     return (
       <div>
-          
+          <img src={props.url} alt = 'party ideas'/>
+          <p>{props.url}</p>
       </div>
     );
 };
-export default Images;
+export default Pictures;

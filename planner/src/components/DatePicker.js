@@ -100,7 +100,6 @@ class DatePicker extends Component {
                           block={false}
                           numberOfMonths={1}
                           date={this.state.date}
-                          onChange = {this.handleChanges}
                           focused={this.state.focused}
                           onFocusChange={({ focused }) =>
                             this.setState({ focused })
