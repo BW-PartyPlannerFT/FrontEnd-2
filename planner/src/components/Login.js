@@ -19,7 +19,7 @@ const Login = (props) => {
 					}}
 					onSubmit={(values, tools) => {
 						axiosWithAuth()
-							.post('https://partyplanner-b.herokuapp.com/api/auth/login', values)
+							.post('/auth/login', values)
 							.then((response) => {
 								localStorage.setItem('token', response.data.token);
 								props.history.push('/partyList');

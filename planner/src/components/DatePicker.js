@@ -75,13 +75,17 @@ class DatePicker extends Component {
        <Card> 
          <Container>
           <Form>
+          <CardStyle><FormGroup>
+            <CardTitleSize><Label for="party_name">Party Title: </Label></CardTitleSize>
+              <Input type="text" name="party_name" placeholder="Enter title of event..." onChange={this.handleChanges} value={this.props.note.party_name}/>
+            </FormGroup></CardStyle>
             <CardStyle>
               <FormGroup>
             <CardTitleSize><Label for="host">Host: </Label></CardTitleSize>
               <Input type="text" name="host" placeholder='Who is hosting?' onChange={this.handleChanges} value={this.props.note.host}/>
             </FormGroup>
             </CardStyle>
-            <FormGroup>
+            {/* <FormGroup>
             <SingleDatePicker
                           // showClearDate={true}
                           customInputIcon={
@@ -107,32 +111,24 @@ class DatePicker extends Component {
                           openDirection="up"
                           hideKeyboardShortcutsPanel={true}
                         />
-            </FormGroup>
+            </FormGroup> */}
+            
 
-
-           <CardStyle><FormGroup>
-            <CardTitleSize><Label for="party_name">Party Title: </Label></CardTitleSize>
-              <Input type="text" name="party_name" placeholder="Enter title of event..." onChange={this.handleChanges} value={this.props.note.party_name}/>
-            </FormGroup></CardStyle>
-            
-             <CardStyle><FormGroup>
-             <CardTitleSize><Label for="date">Date: </Label> </CardTitleSize>
-              <Input type="date" name="date" placeholder="Enter date of party" onChange={this.handleChanges} value={this.props.note.date}/>
-            </FormGroup></CardStyle>
-            
-            <CardStyle><FormGroup>
-            <CardTitleSize><Label for="theme">Theme: </Label> </CardTitleSize>
-              <Input type="text" name="theme" placeholder="Theme of your bash" onChange={this.handleChanges} value={this.props.note.theme}/>
-            </FormGroup> </CardStyle>
-            
-            
-            
             <CardStyle><FormGroup>
             <CardTitleSize> <Label for="guests">Number of expected guests: </Label> </CardTitleSize>
               <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} value={this.props.note.guests}/>
             </FormGroup> </CardStyle>
             
             
+            <CardStyle><FormGroup>
+            <CardTitleSize><Label for="theme">Theme: </Label> </CardTitleSize>
+              <Input type="text" name="theme" placeholder="Theme of your bash" onChange={this.handleChanges} value={this.props.note.theme}/>
+            </FormGroup> </CardStyle>
+            
+            <CardStyle><FormGroup>
+             <CardTitleSize><Label for="date">Date: </Label> </CardTitleSize>
+              <Input type="date" name="date" placeholder="Enter date of party" onChange={this.handleChanges} value={this.props.note.date}/>
+            </FormGroup></CardStyle>      
             
             <CardStyle><FormGroup>
             <CardTitleSize><Label for="budget">Budget: </Label> </CardTitleSize>
@@ -140,7 +136,7 @@ class DatePicker extends Component {
             </FormGroup> </CardStyle>
 
             
-            <CardTitleSize>  <div>Category:</div> </CardTitleSize>
+      <CardTitleSize>  <div>Category:</div> </CardTitleSize>
       <select class="form-control form-control-lg">
         <option>Graduation Party</option>
         <option>Birthday Party</option>

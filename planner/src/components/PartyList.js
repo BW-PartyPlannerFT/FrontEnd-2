@@ -57,10 +57,16 @@ if(props.isLoading){
     <div>
     {props.error && <p>{props.error}</p>}
     <Title><h1>Choose Party to Plan</h1></Title>
+    <div>
+      <Link to="/partyform">
+        <button>ADD NEW PARTY</button>
+      </Link>
+    </div> 
     {props.parties.map(item => {
 
       return (
-        <>        
+        <>       
+        
        <section className="initial-party-page-section">
          
          <Card>
@@ -85,11 +91,7 @@ if(props.isLoading){
     })} 
 
     </div>
-    <div>
-           <Link to="/partyform">
-             <button>ADD NEW PARTY</button>
-         </Link>
-         </div>
+    
     </>
   )
 }

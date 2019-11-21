@@ -24,6 +24,7 @@ const PartyForm = props => {
     e.preventDefault();
     props.rxAddParty(note);
     setNote({ party_name: "", host: "", guests:"", theme: "", date: "", budget: 0, category_id: 2});
+    props.history.push('/partyList');
   };
 
 
