@@ -22,6 +22,7 @@ export const ADD_PARTY_SUCCESS = 'ADD_PARTY_SUCCESS';
 export const ADD_PARTY_FAIL = 'ADD_PARTY_FAIL';
 
 export const rxAddParty = party => dispatch => {
+    console.log('party', party);
     dispatch({type: ADD_PARTY, payload: "New party being created..."});
     axiosWithAuth()
         .post('/parties', party)

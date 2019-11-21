@@ -18,12 +18,12 @@ const Card = styled.div `
 
 const PartyForm = props => {
   console.log("party form props", props);
-  const [note, setNote] = useState({ id:"", party_title: "", host: "", guests: "", theme: "", date: "", budget: "", category:2});
+  const [note, setNote] = useState({ party_name: "", host: "", guests: "", theme: "", date: "", budget: 0, category_id: 2});
 
   const submitForm = e => {
     e.preventDefault();
     props.rxAddParty(note);
-    setNote({ party_title: "", host: "", guests:"", theme: "", date: "", budget: "", category: 2});
+    setNote({ party_name: "", host: "", guests:"", theme: "", date: "", budget: 0, category_id: 2});
   };
 
 

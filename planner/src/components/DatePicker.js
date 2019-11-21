@@ -136,7 +136,7 @@ class DatePicker extends Component {
             
             <CardStyle><FormGroup>
             <CardTitleSize><Label for="budget">Budget: </Label> </CardTitleSize>
-              <Input type="number" name="budget" placeholder="How much do can you spend?" onChange={this.handleChanges} value={this.props.note.budget}/>
+              <Input type="number" name="budget" placeholder="How much can you spend?" onChange={this.handleChanges} value={this.props.note.budget}/>
             </FormGroup> </CardStyle>
 
             

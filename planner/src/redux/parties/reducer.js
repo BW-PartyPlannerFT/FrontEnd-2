@@ -5,14 +5,14 @@ import {GET_PARTY,
     ADD_PARTY_SUCCESS, 
     ADD_PARTY_FAIL} from './actions';
 
-let nextPartyID = 9;
+
 const initialState = {
-    id: ++nextPartyID,
+    
     parties: [],
     isLoading: false,
     isAdding: false,
     error: null
-    
+
 }
 
 const partyReducer = (state = initialState, action) => {
