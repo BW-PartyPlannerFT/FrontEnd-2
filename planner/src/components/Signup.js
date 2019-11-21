@@ -1,30 +1,29 @@
 //Sign up form with inputs for username, email and passwords.
 //Inputs need validation.
-//State will be managed locally 
+//State will be managed locally
 //axios post request.
-//Once signed up, onClick will redirect to login pg. 
-import React, {useState} from 'react';
+//Once signed up, onClick will redirect to login pg.
+import React, { useState } from "react";
 // import { Link } from 'react-router-dom';
-import Nav from './Nav';
-import axios from 'axios';
+import Nav from "./Nav";
+import axios from "axios";
 
+const Signup = props => {
+  console.log("signup props", props);
+  const [newCreds, setNewCreds] = useState({
+    username: "",
+    email: "",
+    password: ""
+  });
 
-const Signup = (props) => {
-    console.log('signup props', props);
-    const [newCreds, setNewCreds] = useState({
-        username: '',
-        email: '',
-        password: ''
+  const handleChange = e => {
+    setNewCreds({
+      ...newCreds,
+      [e.target.name]: e.target.value
     });
+  };
 
-    const handleChange = e => {
-        setNewCreds({
-            ...newCreds,
-            [e.target.name]: e.target.value
-        });
-    };
-    
-        const signup = (e)=> {
+       const signup = (e)=> {
             e.preventDefault();
             axios
             .post('https://partyplanner-b.herokuapp.com/api/auth/register', newCreds)
@@ -37,33 +36,53 @@ const Signup = (props) => {
             .catch(err => console.log('There was an error in signing up', err));
         }
     
-        
 
-    return(
-        <>
-        <Nav/>
-        <div className="Signup-Links">
-            <h1>REGISTER</h1>
-            <form onSubmit={signup}>
-            <label>
-                   USERNAME:
-                   <input type='text' name='username' placeholder='Type new username here...' value={newCreds.username} onChange={handleChange}/>
-               </label>
-               <label>
-                   EMAIL:
-                   <input type='email' name='email' placeholder='Type email here...' value={newCreds.email} onChange={handleChange}/>
-               </label>
-               <label>
-                   PASSWORD:
-                   <input type='password' name='password' placeholder='Enter new password here...' value={newCreds.password} onChange={handleChange}/>
-               </label>
-            
-                <button>Submit</button>
-            
-            </form>
-        </div>
-        </>
-    )
-}
+  return (
+    <>
+      <Nav />
+      <div className="Signup-Links">
+        <h1 className="reg">REGISTER</h1>
+        <form onSubmit={signup}>
+          <label>
+            {" "}
+            USERNAME:
+            <input
+              className="reg-user"
+              type="text"
+              name="username"
+              placeholder="Enter Username"
+              value={newCreds.username}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+              {" "}
+            EMAIL:
+            <input
+              className="email-user"
+              type="email"
+              name="email"
+              placeholder="Enter Email"
+              value={newCreds.email}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            PASSWORD:
+            <input
+              className="pass-user"
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              value={newCreds.password}
+              onChange={handleChange}
+            />
+          </label>
+
+          <button>Submit</button>
+        </form>
+      </div>
+    </>
+  );
+};
 export default Signup;
-
