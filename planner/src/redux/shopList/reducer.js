@@ -33,7 +33,7 @@ const shopReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: null,
-                todo_lists: action.payload,
+                item: action.payload,
                 id: '',
                 completed: false
             }
@@ -72,7 +72,7 @@ const shopReducer = (state = initialState, action) => {
                 if(items.id === action.payload) {
                     return {
                         ...items,
-                        completed: !items.purchased
+                        purchased: !items.purchased
                     };
                 }else {
                     return items;

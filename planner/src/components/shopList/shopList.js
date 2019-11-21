@@ -3,8 +3,10 @@
 // Once clicked purchased, modal window pop up to enter price that will then update the budget.
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
+import {rxGetItem} from '../../redux/shopList/actions';
 
-export default function ShopList() {
+function ShopList() {
   const [list, setList] = useState({
     shop_list: ""
   });
@@ -43,3 +45,15 @@ export default function ShopList() {
 }
 //Dont know exactly where I should link to 
 // having trouble finding specific items from api 
+const mapStateToProps = state => {
+  return {
+    item: state.shopReducer.item,
+    id: state.shopReducer.id,
+    error: state.shopReducer.error,
+    isLoading: state.shopReducer.isLoading,
+    
+    
+  }
+}
+
+export default connect(mapStateToProps, {rxGetItem})(ShopList); 

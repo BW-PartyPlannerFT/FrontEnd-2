@@ -5,9 +5,9 @@ import {GET_PARTY,
     ADD_PARTY_SUCCESS, 
     ADD_PARTY_FAIL} from './actions';
 
-// let nextPartyID = 9;
+let nextPartyID = 9;
 const initialState = {
-    id: 9,
+    id: ++nextPartyID,
     parties: [],
     isLoading: false,
     isAdding: false,
