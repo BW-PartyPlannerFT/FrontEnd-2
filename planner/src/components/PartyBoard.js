@@ -11,6 +11,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const PartyBoard = props => {
+    console.log('partyboard props', props)
+    
+    // const item = props.state.parties.find(
+    //     party => `${party.id}`  === props.match.params.id
+    // )
     return (
       <>
         <div>
@@ -36,6 +41,9 @@ const PartyBoard = props => {
         
           <Link to="/shoppinglist">
               <button>Shopping List</button>
+          </Link>
+          <Link to= '/imageupload'>
+              <button>Add Image</button>
           </Link>
         
         </div>

@@ -30,11 +30,18 @@ function App() {
 
     <PrivateRoute>
 
-      <Route exact path='/partyList' component={PartyList}/>
+      <Route exact path='/partyList' render={props => (
+        <PartyList
+          {...props}
+          />
+      )}/> 
+      <Route path="partyList/:id" render={props => (
+        <PartyBoard {...props} />
+      )} />
       <Route path="/partyform" component={PartyForm}/>
       <Route path="/imageupload" component={ImageUpload}/>
-      <Route path="/partyboard" component={PartyBoard} />
-      <Route path="/additem" component={AddItem} />
+      
+      <Route path="/addItem" component={AddItem} />
       <Route path="/shoplist" component={ShopList} />
       {/* <Route path='/lists' component={CombinedLists}/> */}
     </PrivateRoute>
