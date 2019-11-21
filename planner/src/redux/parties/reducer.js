@@ -44,15 +44,15 @@ const partyReducer = (state = initialState, action) => {
                 ...state,
                 error: null,
                 isAdding: true,
-                parties: action.payload,
-                id: ''
+                
+                
             }
         case ADD_PARTY_SUCCESS:
             return {
                 ...state,
                 error: null,
                 isAdding: false,
-                parties: action.payload
+                parties: [...state.parties, action.payload]
             }
         case ADD_PARTY_FAIL:
             return {

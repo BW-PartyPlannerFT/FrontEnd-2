@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {rxGetParty} from '../redux/parties/actions';
-import {rxGetCategory} from '../redux/categories/actions';
+// import {rxGetCategory} from '../redux/categories/actions';
 import styled from "styled-components";
 import PartyBoard from './PartyBoard';
 
@@ -35,7 +35,7 @@ const Title = styled.div`
 `;
 
 const PartyList = (props) => {
-  const partyCategory = []
+  
   function routeToParty(e, item){
     e.preventDefault();
     props.history.push('/')
@@ -43,25 +43,25 @@ const PartyList = (props) => {
 
   useEffect(() => {
     props.rxGetParty();
-    props.rxGetCategory();
+   
   },[])
 
+  
 
 
 if(props.isLoading){
   return <h2><span role="img" aria-labelledby='jsx-ally/accessible-emoji'>🔃</span></h2>
 }else{
-  console.log('partlist pros', props.category)
+  
   return (
     <>
+    <Title><h1>Choose Party to Plan</h1></Title>
+      <Link to="/partyform">
+          <button>ADD NEW PARTY</button>
+      </Link>
+
     <div>
     {props.error && <p>{props.error}</p>}
-    <Title><h1>Choose Party to Plan</h1></Title>
-    <div>
-      <Link to="/partyform">
-        <button>ADD NEW PARTY</button>
-      </Link>
-    </div> 
     {props.parties.map(item => {
 
       return (
@@ -78,6 +78,7 @@ if(props.isLoading){
               theme={item.theme}
               date={item.date}
               budget={item.budget}
+              category={item.category}
               // category={item.category_id === props.category.id ? props.category.category : null}
               
 
@@ -89,9 +90,9 @@ if(props.isLoading){
         </>
       )
     })} 
-
-    </div>
+           
     
+    </div>
     </>
   )
 }
@@ -104,12 +105,12 @@ if(props.isLoading){
       id: state.partyReducer.id,
       error: state.partyReducer.error,
       isLoading: state.partyReducer.isLoading,
-      category: state.categoryReducer.category,
-      id: state.categoryReducer.id
+      // category: state.categoryReducer.category,
+      // id: state.categoryReducer.id
     }
   }
 
-export default connect(mapStateToProps, {rxGetParty, rxGetCategory})(PartyList); 
+export default connect(mapStateToProps, {rxGetParty})(PartyList); 
 
   
   
