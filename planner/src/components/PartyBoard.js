@@ -9,15 +9,11 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Pictures from '../components/Pictures';
 
 const PartyBoard = props => {
-    console.log('partyboard props', props.category);
-    
-    // const item = props.state.parties.find(
-    //     party => `${party.id}`  === props.match.params.id
-    // )
+        
     return (
-
       <>
         <div>
             
@@ -28,12 +24,11 @@ const PartyBoard = props => {
                 <li>guests: {props.guests}</li>
                 <li>theme: {props.theme}</li>
                 <li>date: {props.date}</li>
-                <li>date: {props.date}</li>
                 <li>budget: {props.budget}</li>
                 <li>category: {props.category}</li>
                 
             </ul>
-            
+            <Pictures/>
         </div>
         <div>
         

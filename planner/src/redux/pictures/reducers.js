@@ -40,14 +40,14 @@ const picturesReducer = (state = initialState, action) => {
                 ...state,
                 error: null,
                 isAdding: true,
-                pictures: action.payload
+                
             }
         case ADD_PIC_SUCCESS:
             return {
                 ...state,
                 error: null,
                 isAdding: false,
-                pictures: action.payload
+                pictures: [...state.parties, action.payload]
             }
         case ADD_PIC_FAIL:
             return {
