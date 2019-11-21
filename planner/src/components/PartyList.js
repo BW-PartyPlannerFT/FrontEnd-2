@@ -8,6 +8,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {rxGetParty} from '../redux/parties/actions';
+import {rxGetCategory} from '../redux/categories/actions';
 import styled from "styled-components";
 import PartyBoard from './PartyBoard';
 
@@ -34,6 +35,7 @@ const Title = styled.div`
 `;
 
 const PartyList = (props) => {
+  const partyCategory = []
   function routeToParty(e, item){
     e.preventDefault();
     props.history.push('/')
@@ -41,50 +43,55 @@ const PartyList = (props) => {
 
   useEffect(() => {
     props.rxGetParty();
+    props.rxGetCategory();
   },[])
+
+
 
 if(props.isLoading){
   return <h2><span role="img" aria-labelledby='jsx-ally/accessible-emoji'>🔃</span></h2>
 }else{
+  console.log('partlist pros', props.category)
   return (
     <>
     <div>
     {props.error && <p>{props.error}</p>}
+    <Title><h1>Choose Party to Plan</h1></Title>
+    <div>
+      <Link to="/partyform">
+        <button>ADD NEW PARTY</button>
+      </Link>
+    </div> 
     {props.parties.map(item => {
 
       return (
-        <>
-
+        <>       
         
-       <section className="initial-party-page-section"><Title><h1>Choose Party to Plan</h1></Title><Card>
-
-        <h1>Choose Party to Plan</h1>
-        <div>
-
+       <section className="initial-party-page-section">
+         
+         <Card>
+       
         <PartyBoard key={item.id} 
-                               party_name={item.party_name} 
-                               host={item.host} 
-                               guests={item.guests}
-                               theme={item.theme}
-                                date={item.date}
-                                budget={item.budget}
+              party_name={item.party_name} 
+              host={item.host} 
+              guests={item.guests}
+              theme={item.theme}
+              date={item.date}
+              budget={item.budget}
+              // category={item.category_id === props.category.id ? props.category.category : null}
+              
 
-                                category={item.id=props.category.id ? props.category : null}/></Card></section>
-
-                                category={item.id=props.category.id ? props.category : null}
-                                onClick={e => routeToParty(e, item)}/>
-        </div>
+                                />
+        </Card>
+        </section>
+        
 
         </>
       )
     })} 
 
     </div>
-    <div>
-           <Link to="/partyform">
-             <button>ADD NEW PARTY</button>
-         </Link>
-         </div>
+    
     </>
   )
 }
@@ -102,7 +109,7 @@ if(props.isLoading){
     }
   }
 
-export default connect(mapStateToProps, {rxGetParty})(PartyList); 
+export default connect(mapStateToProps, {rxGetParty, rxGetCategory})(PartyList); 
 
   
   

@@ -18,23 +18,26 @@ const Card = styled.div `
 
 const PartyForm = props => {
   console.log("party form props", props);
-  const [note, setNote] = useState({ id:"", party_title: "", host: "", guests: "", theme: "", date: "", budget: "" });
+  const [note, setNote] = useState({ party_name: "", host: "", guests: "", theme: "", date: "", budget: 0, category_id: 2});
 
   const submitForm = e => {
     e.preventDefault();
     props.rxAddParty(note);
-    setNote({ party_title: "", host: "", guests:"", theme: "", date: "", budget: ""});
+    setNote({ party_name: "", host: "", guests:"", theme: "", date: "", budget: 0, category_id: 2});
+    props.history.push('/partyList');
   };
 
 
   return (
-    <Card><Form>
+    <Card>
+      <Form>
     <form onSubmit={submitForm}>
       <DatePicker note={note} setNote={setNote} rxAddParty={rxAddParty}/>
 
       <div><button type="submit">Let's Party!!</button></div>
     </form>
-    </Form></Card>
+    </Form>
+    </Card>
   );
 };
 
@@ -42,7 +45,9 @@ const mapStateToProps = state => {
   return {
     parties: state.partyReducer.parties,
     error: state.partyReducer.error,
-    isAdding: state.partyReducer.isAdding
+    isAdding: state.partyReducer.isAdding,
+    category: state.categoryReducer.isAdding,
+    category: state.categoryReducer.error
   }
 }
 

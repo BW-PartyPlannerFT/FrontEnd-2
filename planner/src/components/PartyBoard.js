@@ -11,12 +11,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const PartyBoard = props => {
-    console.log('partyboard props', props)
+    console.log('partyboard props', props.category);
     
     // const item = props.state.parties.find(
     //     party => `${party.id}`  === props.match.params.id
     // )
     return (
+
       <>
         <div>
             
@@ -29,7 +30,7 @@ const PartyBoard = props => {
                 <li>date: {props.date}</li>
                 <li>date: {props.date}</li>
                 <li>budget: {props.budget}</li>
-                <li>Category: {props.category}</li>
+                
             </ul>
             
         </div>
