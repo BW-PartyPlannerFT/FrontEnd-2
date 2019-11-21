@@ -12,6 +12,7 @@ const initialState = {
     isLoading: false,
     isAdding: false,
     error: null
+    
 }
 
 const partyReducer = (state = initialState, action) => {
