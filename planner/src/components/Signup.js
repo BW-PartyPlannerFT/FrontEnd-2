@@ -15,6 +15,7 @@ const Signup = props => {
     email: "",
     password: ""
   });
+  const [errors, setErrors] = useState({ username: "", password: "" });
 
   const handleChange = e => {
     setNewCreds({
@@ -22,18 +23,34 @@ const Signup = props => {
       [e.target.name]: e.target.value
     });
   };
-
+  const validateForm = () => {
+    if (newCreds.username.length === 0) {
+      setErrors({ ...errors, username: "Sorry, username not valid" });
+      return false;
+    }
+    if (newCreds.password.length === 0) {
+      setErrors({ ...errors, password: "Sorry, password not valid" });
+      return false;
+    }
+    return true;
+  };
   const signup = e => {
     e.preventDefault();
-    axios
-      .post("https://partyplanner-b.herokuapp.com/api/auth/register", newCreds)
-      .then(res => {
-        console.log(res.data, res);
-        localStorage.setItem("token", res.data.user);
-        props.history.push("/");
-        setNewCreds("");
-      })
-      .catch(err => alert("There was an error in signing up", err));
+
+    const isvalidform = validateForm();
+    if (isvalidform)
+      axios
+        .post(
+          "https://partyplanner-b.herokuapp.com/api/auth/register",
+          newCreds
+        )
+        .then(res => {
+          console.log(res.data, res);
+          localStorage.setItem("token", res.data.user);
+          props.history.push("/");
+          setNewCreds("");
+        })
+        .catch(err => alert("There was an error in signing up", err));
   };
 
   return (
@@ -44,7 +61,7 @@ const Signup = props => {
         <form onSubmit={signup}>
           <label>
             {" "}
-            USERNAME:
+            {/* USERNAME: */}
             <input
               className="reg-user"
               type="text"
@@ -54,9 +71,10 @@ const Signup = props => {
               onChange={handleChange}
             />
           </label>
+          {errors.username}
           <label>
-              {" "}
-             EMAIL:
+            {" "}
+            {/* EMAIL: */}
             <input
               className="email-user"
               type="email"
@@ -66,9 +84,10 @@ const Signup = props => {
               onChange={handleChange}
             />
           </label>
+          {errors.password}
           <label>
-              {" "}
-           PASSWORD:
+             {" "}
+            {/* PASSWORD: */} 
             <input
               className="pass-user"
               type="password"
