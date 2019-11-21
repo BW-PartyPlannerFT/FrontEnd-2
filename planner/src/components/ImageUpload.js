@@ -42,7 +42,7 @@ const ImageUpload = (props) => {
     e.preventDefault();
     props.rxAddPics(input);
     setInput({id: '', url: ''});
-    // props.history.push('/partyList');
+    props.history.push('/partyList');
     setInput('')
 };
     return (

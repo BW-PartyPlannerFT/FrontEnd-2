@@ -8,7 +8,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {rxGetParty} from '../redux/parties/actions';
-// import {rxGetCategory} from '../redux/categories/actions';
+
+// import {rxDeleteParty} from '../redux/categories/actions';
 import styled from "styled-components";
 import PartyBoard from './PartyBoard';
 
@@ -79,10 +80,8 @@ if(props.isLoading){
               date={item.date}
               budget={item.budget}
               category={item.category}
-              // category={item.category_id === props.category.id ? props.category.category : null}
-              
-
-                                />
+             
+              />
         </Card>
         </section>
         
