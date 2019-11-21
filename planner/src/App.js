@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import Welcome from './components/Welcome';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import CreateAccount from './components/CreateAccount';
 import PartyForm from './components/PartyForm';
 import './components/Signup.css';
 
@@ -25,8 +27,10 @@ function App() {
     <div className="App">
     
      <Switch>
-    <Route exact path="/" component={Login} />
-    <Route path="/signup" component={Signup}/>
+      <Route exact path='/' component={Welcome}/>
+			<Route path='/register' component={Signup}/>
+      <Route path='/planner/login' component={Login}/>
+      <Route path='/planner/register' component={CreateAccount}/>
 
     <PrivateRoute>
 

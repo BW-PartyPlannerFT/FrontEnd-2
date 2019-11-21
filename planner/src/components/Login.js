@@ -1,80 +1,66 @@
-//DO NOT CHANGE CODE IN THIS FILE
-// Login form with input for username and password.
-// State handled locally.
-// On submit redirects to private route (PartyList)
-import React, { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import Nav from "../components/Nav";
-import userpic from "./userpic.jpg";
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
+import Header from './Header';
+import { Formik, Form, Field } from 'formik';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const Login = props => {
-  const [credentials, setCredentials] = useState({
-    username: "",
-    password: ""
-  });
-  const [isLoading, setIsLoading] = useState(false);
+const Login = (props) => {
+	const [error, setError] = useState('');
+	
+	return (
+		<div>
+			<Header />
+			<section className='log-in-page-section'>
+				<h2>Log In</h2>
+				<Formik
+					initialValues={{
+						username : '',
+						password : '',
+					}}
+					onSubmit={(values, tools) => {
+						axiosWithAuth()
+							.post('https://partyplanner-b.herokuapp.com/api/auth/login', values)
+							.then((response) => {
+								localStorage.setItem('token', response.data.token);
+								props.history.push('/partyList');
+								tools.resetForm();
+							})
+							.catch((error) => {
+								console.log(error);
+								if (error) {
+									setError('Wrong information. Please try again.');
+								};
+							});
+					}}
+				>
+					{() => {
+						return (
+							<Form className='form' autoComplete='off'>
+								<div className='input-container'>
+									<label htmlFor='username'>Username</label>
+									<Field name='username' type='text' placeholder='Enter Username' />
+								</div>
 
-  //   console.log("Cred", credentials);
-  const handleChange = e => {
-    setCredentials({
-      ...credentials,
-      [e.target.name]: e.target.value
-    });
-  };
+								<div className='input-container'>
+									<label htmlFor='password'>Password</label>
+									<Field name='password' type='password' placeholder='Enter Password' />
+									<p className='sign-in-error'>{error}</p>
+								</div>
 
-  const login = e => {
-    e.preventDefault();
-    setIsLoading(true);
+								<button className='planner-sign-in-button button-spacing' type='submit'>
+									Log In
+								</button>
+							</Form>
+						);
+					}}
+				</Formik>
 
-    axios
-      .post("https://partyplanner-b.herokuapp.com/api/auth/login", credentials)
-      .then(res => {
-        console.log("Response from login", res.data);
-        localStorage.setItem("token", res.data.token);
-        props.history.push("/partyList");
-      })
-      .catch(err => console.log(err, "There was an error in logging in", err));
-  };
-
-  return (
-    <>
-      <Nav />
-      <div className="Login">
-        <form onSubmit={login}>
-          <label>
-            <img className="user-pic" src={userpic} />
-            <input className="user-login"
-              type="text"
-              name="username"
-              placeholder="Enter Username"
-              value={credentials.username}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            <input className="user-password"
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={credentials.password}
-              onChange={handleChange}
-            />
-          </label>
-          <button className="log">Login</button>
-          <Link to="/Signup">
-            <button className="sign-up">Sign up</button>
-          </Link>
-        </form>
-      </div>
-      <div>
-        {isLoading && (
-          //Add some animation here?
-          <h2>Loading...</h2>
-        )}
-      </div>
-    </>
-  );
+				<Link to='/planner/register'>
+					<p>Create an Account</p>
+				</Link>
+			</section>
+		</div>
+	);
 };
 
 export default Login;

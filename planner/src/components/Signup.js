@@ -1,88 +1,21 @@
-//Sign up form with inputs for username, email and passwords.
-//Inputs need validation.
-//State will be managed locally
-//axios post request.
-//Once signed up, onClick will redirect to login pg.
-import React, { useState } from "react";
-// import { Link } from 'react-router-dom';
-import Nav from "./Nav";
-import axios from "axios";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import Header from './Header';
 
-const Signup = props => {
-  console.log("signup props", props);
-  const [newCreds, setNewCreds] = useState({
-    username: "",
-    email: "",
-    password: ""
-  });
-
-  const handleChange = e => {
-    setNewCreds({
-      ...newCreds,
-      [e.target.name]: e.target.value
-    });
-  };
-
-       const signup = (e)=> {
-            e.preventDefault();
-            axios
-            .post('https://partyplanner-b.herokuapp.com/api/auth/register', newCreds)
-            .then(res => {
-                console.log(res.data, res);
-                localStorage.setItem('token', res.data.user);
-                props.history.push('/');
-                setNewCreds('')
-            })
-            .catch(err => console.log('There was an error in signing up', err));
-        }
-    
-
-  return (
-    <>
-      <Nav />
-      <div className="Signup-Links">
-        <h1 className="reg">REGISTER</h1>
-        <form onSubmit={signup}>
-          <label>
-            {" "}
-            USERNAME:
-            <input
-              className="reg-user"
-              type="text"
-              name="username"
-              placeholder="Enter Username"
-              value={newCreds.username}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-              {" "}
-            EMAIL:
-            <input
-              className="email-user"
-              type="email"
-              name="email"
-              placeholder="Enter Email"
-              value={newCreds.email}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            PASSWORD:
-            <input
-              className="pass-user"
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={newCreds.password}
-              onChange={handleChange}
-            />
-          </label>
-
-          <button>Submit</button>
-        </form>
-      </div>
-    </>
-  );
+const Signup = () => {
+    return (
+        <div>
+            <Header/>
+            <section className='initial-sign-in-page-section'>
+                <div>
+                    <h2>Create an Account</h2>
+                    <Link to='/planner/register'><button className='planner-sign-in-button'>I'm a party planner</button></Link>
+            
+                    <Link to='/planner/login'><p>Already have an account? Log in here.</p></Link>
+                </div>
+            </section>
+        </div>
+    )
 };
+
 export default Signup;
