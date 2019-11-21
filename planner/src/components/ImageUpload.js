@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import styled from "styled-components";
 import axios from 'axios';
 import styled from "styled-components";
+
+
 const Card = styled.div`
 width: 50%;
 padding: 10px;
@@ -41,7 +43,7 @@ class ImageUpload extends Component {
   fileUploadHandler = () => {
     const fd = new FormData();
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('', fd, {
+    axios.post('https://partyplanner-b.herkuapp.com/api/parties', fd, {
     onUploadProgress: progressEvent => {
       console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100 ) + '%' );
     }

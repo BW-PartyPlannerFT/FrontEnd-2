@@ -8,11 +8,30 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {rxGetParty} from '../redux/parties/actions';
-
-
+import styled from "styled-components";
 import PartyBoard from './PartyBoard';
 
+const Card = styled.div`
+width: 50%;
+height: 50%;
+background-color: lightblue;
+padding: 10px;
+box-shadow: 1px 1px 5px black;
+border-radius: 10px;
+margin: 20px auto;
+display: flex;
+align-items: center;
+justify-content: space-around;
+`;
 
+const Title = styled.div`
+  font-size: 18px;
+  border-bottom: 1px solid lightgrey;
+  background-color: pink;
+  margin: 20px auto;
+  width: 50%;
+  border-radius: 10px;
+`;
 
 const PartyList = (props) => {
   useEffect(() => {
@@ -30,7 +49,8 @@ if(props.isLoading){
 
       return (
         <>
-        <h1>Choose Party to Plan</h1>
+        
+       <section className="initial-party-page-section"><Title><h1>Choose Party to Plan</h1></Title><Card>
         <PartyBoard key={item.id} 
                                party_name={item.party_name} 
                                host={item.host} 
@@ -38,7 +58,7 @@ if(props.isLoading){
                                theme={item.theme}
                                 date={item.date}
                                 budget={item.budget}
-                                category={item.id=props.category.id ? props.category : null}/>
+                                category={item.id=props.category.id ? props.category : null}/></Card></section>
         </>
       )
     })} 

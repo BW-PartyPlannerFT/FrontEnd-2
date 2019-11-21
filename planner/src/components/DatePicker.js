@@ -11,6 +11,7 @@ import styled from "styled-components";
 
 const Card = styled.div`
 width: 40%;
+background-color: white;
 padding: 10px;
 box-shadow: 1px 1px 5px black;
 border-radius: 10px;
@@ -20,14 +21,14 @@ justify-content: space-between;
 `;
 
 const CardStyle = styled.div `    
-    background: lightblue;
+    // background: lightblue;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
     transition: transform 0.2s ease-in;
-     border: 5px solid black;
+     border: 2px solid lightgrey;
     &:hover {
       transform: translate(-5px) scale(1.05);
     }
@@ -35,7 +36,7 @@ const CardStyle = styled.div `
     `;
 
 const CardTitleSize = styled.h2 `
-font-size: 30px;
+font-size: 20px;
 
 `;
 
@@ -91,7 +92,7 @@ class DatePicker extends Component {
                           block={false}
                           numberOfMonths={1}
                           date={this.state.date}
-                          onDateChange={date => this.handleDateChange(date)}
+                          onChange = {this.handleChanges}
                           focused={this.state.focused}
                           onFocusChange={({ focused }) =>
                             this.setState({ focused })
@@ -100,40 +101,48 @@ class DatePicker extends Component {
                           hideKeyboardShortcutsPanel={true}
                         />
             </FormGroup>
+
+
            <CardStyle><FormGroup>
             <CardTitleSize><Label for="title">Party Title: </Label></CardTitleSize>
-              <Input type="text" name="title" placeholder="Enter title of event.." onChange={this.handleChanges} value={this.props.note.party_name}/>
+              <Input type="text" name="title" placeholder="Enter title of event..." onChange={this.handleChanges} value={this.props.note.party_name}/>
             </FormGroup></CardStyle>
             
+             <CardStyle><FormGroup>
+             <CardTitleSize><Label for="date">Date: </Label> </CardTitleSize>
+              <Input type="date" name="date" placeholder="Enter date of party" onChange={this.handleChanges} value={this.props.note.date}/>
+            </FormGroup></CardStyle>
+            
+            <CardStyle><FormGroup>
+            <CardTitleSize><Label for="theme">Theme: </Label> </CardTitleSize>
+              <Input type="text" name="theme" placeholder="Theme of your bash" onChange={this.handleChanges} value={this.props.note.theme}/>
+            </FormGroup> </CardStyle>
             
             
-            <FormGroup>
-              <Label for="theme">Theme: </Label>
-              <Input type="text" name="theme" placeholder="Theme of you bash" onChange={this.handleChanges} value={this.props.note.theme}/>
-            </FormGroup>
             
-            
-            
-            <FormGroup>
-              <Label for="guests">Number of expected guests: </Label>
+            <CardStyle><FormGroup>
+            <CardTitleSize> <Label for="guests">Number of expected guests: </Label> </CardTitleSize>
               <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} value={this.props.note.guests}/>
-            </FormGroup>
+            </FormGroup> </CardStyle>
             
             
             
-            <FormGroup>
-              <Label for="budget">Budget: </Label>
+            <CardStyle><FormGroup>
+            <CardTitleSize><Label for="budget">Budget: </Label> </CardTitleSize>
               <Input type="number" name="budget" placeholder="How much do can you spend?" onChange={this.handleChanges} value={this.props.note.budget}/>
-            </FormGroup>
-            <div>Category:</div>
+            </FormGroup> </CardStyle>
+
+            
+            <CardTitleSize>  <div>Category:</div> </CardTitleSize>
       <select class="form-control form-control-lg">
-        <option>Category</option>
-        <option>Adult Birthday Party</option>
+        <option>Graduation Party</option>
+        <option>Birthday Party</option>
+        <option>Surprise Party</option>
+        <option>Garden Party</option>
         <option>Dinner Party</option>
-        <option>Anniversary Party</option>
-        <option>Kid's Birthday Party</option>
-        <option>Charity Party</option>
-        <option>Other</option>
+        <option>Cocktail Party</option>
+        <option>Tea Party</option>
+        <option>Showers</option>
         </select>
         <label></label>
           </Form>

@@ -1,14 +1,41 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import "../App.css";
+import React from 'react';
+import {
+  Navbar,
+  NavbarBrand,
+  Nav,
+  NavItem,
 
-const Nav = () => {
+} from 'reactstrap';
+import {Link} from 'react-router-dom';
+import styled from "styled-components";
+
+
+const CardStyle = styled.div `    
+
+position: center;
+width: 100%;
+display: flex;
+margin: auto;
+padding: 0 1rem;
+justify-content: space-between;
+height: 1rem;
+font-size: 1rem;
+ `;
+
+
+const Nav1 = () => {
   return (
-    <div className="header">
-      <NavLink to="/">Login</NavLink>
-      <NavLink to="/signup">Sign Up</NavLink>
+    <div>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/">Party Planner</NavbarBrand>
+          <Nav className="ml-auto" navbar color="light" light expand="md">
+          <CardStyle><NavItem><Link className ="navstyle" to="/">Login</Link></NavItem></CardStyle>
+          <div></div>
+          <CardStyle><Link to="/signup">SignUp</Link></CardStyle>
+          </Nav>
+      </Navbar>
     </div>
   );
 };
 
-export default Nav;
+export default Nav1;
