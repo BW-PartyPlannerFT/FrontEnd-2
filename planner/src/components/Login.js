@@ -28,6 +28,10 @@ const Login = props => {
       setErrors({ ...errors, username: "Sorry, not valid" });
       return false;
     }
+    if (credentials.password.length === 0) {
+      setErrors({ ...errors, password: "Sorry, password not valid" });
+      return false;
+    }
     return true;
   };
   const login = e => {
