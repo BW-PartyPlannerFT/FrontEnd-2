@@ -32,13 +32,7 @@ const PartyBoard = props => {
         </div>
         <div>
         
-          <Link to ="/todolist">
-              <button>To Do List</button>
-          </Link>
-        
-          <Link to="/shoppinglist">
-              <button>Shopping List</button>
-          </Link>
+          
           <Link to= '/imageupload'>
               <button>Add Image</button>
           </Link>
