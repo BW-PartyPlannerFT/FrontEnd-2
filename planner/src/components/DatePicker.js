@@ -9,25 +9,35 @@ import 'react-dates/lib/css/_datepicker.css';
 import {SingleDatePicker} from 'react-dates';
 import styled from "styled-components";
 
+
+const BG = styled.body `
+
+background-image: url('party.jpg');
+background-size: cover;
+background-position: center;
+`;
+
 const Card = styled.div`
 width: 40%;
+background-color: white;
 padding: 10px;
 box-shadow: 1px 1px 5px black;
 border-radius: 10px;
 margin: 20px auto;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
+margin-botton: 10%;
 `;
 
 const CardStyle = styled.div `    
-    background: lightblue;
+    // background: lightblue;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
     transition: transform 0.2s ease-in;
-     border: 5px solid black;
+     border: 2px solid lightgrey;
     &:hover {
       transform: translate(-5px) scale(1.05);
     }
@@ -35,8 +45,15 @@ const CardStyle = styled.div `
     `;
 
 const CardTitleSize = styled.h2 `
-font-size: 30px;
+font-size: 20px;
 
+`;
+const Button = styled.div`
+width: 40%;
+margin: 20px auto;
+display: flex;
+justify-content: space-around;
+margin-botton: 10%;
 `;
 
 
@@ -52,26 +69,31 @@ class DatePicker extends Component {
   }
 
   handleChanges = e => {
-    e.preventDefault();
+    
+    // console.log(this.props.note.date);
     this.props.setNote({
       ...this.props.note,
       [e.target.name]: e.target.value
     });
   }
 
-  render(props) {
+  render() {
     return (
-      <div>
+      <BG><div>
        <Card> 
          <Container>
           <Form>
+          <CardStyle><FormGroup>
+            <CardTitleSize><Label for="party_name">Party Title: </Label></CardTitleSize>
+              <Input type="text" name="party_name" placeholder="Enter title of event..." onChange={this.handleChanges} value={this.props.note.party_name}/>
+            </FormGroup></CardStyle>
             <CardStyle>
               <FormGroup>
             <CardTitleSize><Label for="host">Host: </Label></CardTitleSize>
-              <Input type="text" name="host" placeholder='Who is hosting?' onChange={this.handleChanges} />
+              <Input type="text" name="host" placeholder='Who is hosting?' onChange={this.handleChanges} value={this.props.note.host}/>
             </FormGroup>
             </CardStyle>
-            <FormGroup>
+            {/* <FormGroup>
             <SingleDatePicker
                           // showClearDate={true}
                           customInputIcon={
@@ -82,12 +104,14 @@ class DatePicker extends Component {
                               />
                             </svg>
                           }
+                          name="date"
+                          value={this.props.note.date}
+                          onChange={this.handleChanges}
                           inputIconPosition="after"
                           small={true}
                           block={false}
                           numberOfMonths={1}
                           date={this.state.date}
-                          onDateChange={date => this.handleDateChange(date)}
                           focused={this.state.focused}
                           onFocusChange={({ focused }) =>
                             this.setState({ focused })
@@ -95,53 +119,46 @@ class DatePicker extends Component {
                           openDirection="up"
                           hideKeyboardShortcutsPanel={true}
                         />
-            </FormGroup>
-           <CardStyle><FormGroup>
-            <CardTitleSize><Label for="title">Party Title: </Label></CardTitleSize>
-              <Input type="text" name="title" placeholder="Enter title of event.." onChange={this.handleChanges} />
-            </FormGroup></CardStyle>
+            </FormGroup> */}
+            
+
+            <CardStyle><FormGroup>
+            <CardTitleSize> <Label for="guests">Number of expected guests: </Label> </CardTitleSize>
+              <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} value={this.props.note.guests}/>
+            </FormGroup> </CardStyle>
             
             
+            <CardStyle><FormGroup>
+            <CardTitleSize><Label for="theme">Theme: </Label> </CardTitleSize>
+              <Input type="text" name="theme" placeholder="Theme of your bash" onChange={this.handleChanges} value={this.props.note.theme}/>
+            </FormGroup> </CardStyle>
             
-            <FormGroup>
-              <Label for="theme">Theme: </Label>
-              <Input type="text" name="theme" placeholder="Theme of you bash" onChange={this.handleChanges} />
-            </FormGroup>
+            <CardStyle><FormGroup>
+             <CardTitleSize><Label for="date">Date: </Label> </CardTitleSize>
+              <Input type="date" name="date" placeholder="Enter date of party" onChange={this.handleChanges} value={this.props.note.date}/>
+            </FormGroup></CardStyle>      
             
+            <CardStyle><FormGroup>
+            <CardTitleSize><Label for="budget">Budget: </Label> </CardTitleSize>
+              <Input type="number" name="budget" placeholder="How much can you spend?" onChange={this.handleChanges} value={this.props.note.budget}/>
+            </FormGroup> </CardStyle>
+
             
-            
-            <FormGroup>
-              <Label for="guests">Number of expected guests: </Label>
-              <Input type="number" name="guests" placeholder="Estimated number of guests" onChange={this.handleChanges} />
-            </FormGroup>
-            
-            
-            
-            <FormGroup>
-              <Label for="budget">Budget: </Label>
-              <Input type="number" name="budget" placeholder="How much do can you spend?" onChange={this.handleChanges} />
-            </FormGroup>
-            <div>Category:</div>
-      <select class="form-control form-control-lg">
-        <option>Category</option>
-        <option>Adult Birthday Party</option>
-        <option>Dinner Party</option>
-        <option>Anniversary Party</option>
-        <option>Kid's Birthday Party</option>
-        <option>Charity Party</option>
-        <option>Other</option>
-        </select>
-        <label></label>
+            <CardStyle><FormGroup>
+            <CardTitleSize><Label for="category">Category: </Label> </CardTitleSize>
+              <Input type="text" name="category" placeholder="What type of party is this?" onChange={this.handleChanges} value={this.props.note.category}/>
+            </FormGroup> </CardStyle>
+            <Button><div><button type="submit">Let's Party!!</button></div></Button>
           </Form>
         </Container></Card>
-      </div>
+      </div></BG>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    parties: state.parties,
+    parties: state.partyReducer.parties,
   }
 }
 

@@ -22,6 +22,7 @@ export const ADD_PARTY_SUCCESS = 'ADD_PARTY_SUCCESS';
 export const ADD_PARTY_FAIL = 'ADD_PARTY_FAIL';
 
 export const rxAddParty = party => dispatch => {
+    console.log('party', party);
     dispatch({type: ADD_PARTY, payload: "New party being created..."});
     axiosWithAuth()
         .post('/parties', party)
@@ -31,7 +32,21 @@ export const rxAddParty = party => dispatch => {
 
 
 export const EDIT_PARTY = 'EDIT_PARTY';
-export const DELETE_PARTY = 'DELETE_PARTY';
+
+
+// export const DELETE_PARTY = 'DELETE_PARTY';
+// export const DELETE_PARTY_SUCCESS = 'DELETE_PARTY';
+// export const DELETE_PARTY_FAIL = 'DELETE_PARTY';
+
+// export const rxDeleteParty = party => dispatch => {
+//     console.log('party', party);
+//     dispatch({type: DELETE_PARTY, payload: "Party being deleted..."});
+//     axiosWithAuth()
+//         .post(`/parties/:id`, party)
+//         .then(res => dispatch({type: DELETE_PARTY_SUCCESS, payload: res.data}))
+//         .catch(err => dispatch({type: DELETE_PARTY_FAIL, payload: err.response}))
+// }
+
 
 
 

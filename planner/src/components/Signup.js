@@ -1,13 +1,8 @@
-//Sign up form with inputs for username, email and passwords.
-//Inputs need validation.
-//State will be managed locally
-//axios post request.
-//Once signed up, onClick will redirect to login pg.
-import React, { useState } from "react";
-// import { Link } from 'react-router-dom';
-import Nav from "./Nav";
-import axios from "axios";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import Header from './Header';
 
+<<<<<<< HEAD
 const Signup = props => {
   console.log("signup props", props);
   const [newCreds, setNewCreds] = useState({
@@ -109,5 +104,22 @@ const Signup = props => {
       </div>
     </>
   );
+=======
+const Signup = () => {
+    return (
+        <div>
+            <Header/>
+            <section className='initial-sign-in-page-section'>
+                <div>
+                    <h2>Create an Account</h2>
+                    <Link to='/planner/register'><button className='planner-sign-in-button'>I'm a party planner</button></Link>
+            
+                    <Link to='/planner/login'><p>Already have an account? Log in here.</p></Link>
+                </div>
+            </section>
+        </div>
+    )
+>>>>>>> d6519b226c6190cad3e30475bad0d728046230e7
 };
+
 export default Signup;

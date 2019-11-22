@@ -5,8 +5,10 @@ import {GET_CATEGORY,
     ADD_CATEGORY_SUCCESS, 
     ADD_CATEGORY_FAIL} from './actions';
 
+    // let nextCatID = 9;
 const initialState = {
     category: '',
+    id: 9,
     isLoading: false,
     isAdding: false,
     error: null
