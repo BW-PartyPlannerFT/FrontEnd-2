@@ -60,6 +60,7 @@ if(props.isLoading){
 
     <div>
     {props.error && <p>{props.error}</p>}
+    {props.parties.map(item => {return <div> Party Time </div>})}
     {props.parties.map(item => {
 
       return (
