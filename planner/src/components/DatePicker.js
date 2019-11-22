@@ -25,7 +25,7 @@ box-shadow: 1px 1px 5px black;
 border-radius: 10px;
 margin: 20px auto;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 margin-botton: 10%;
 `;
 
@@ -47,6 +47,13 @@ const CardStyle = styled.div `
 const CardTitleSize = styled.h2 `
 font-size: 20px;
 
+`;
+const Button = styled.div`
+width: 40%;
+margin: 20px auto;
+display: flex;
+justify-content: space-around;
+margin-botton: 10%;
 `;
 
 
@@ -141,6 +148,7 @@ class DatePicker extends Component {
             <CardTitleSize><Label for="category">Category: </Label> </CardTitleSize>
               <Input type="text" name="category" placeholder="What type of party is this?" onChange={this.handleChanges} value={this.props.note.category}/>
             </FormGroup> </CardStyle>
+            <Button><div><button type="submit">Let's Party!!</button></div></Button>
           </Form>
         </Container></Card>
       </div></BG>

@@ -33,8 +33,6 @@ const PartyForm = props => {
       <Form>
     <form onSubmit={submitForm}>
       <DatePicker note={note} setNote={setNote} rxAddParty={rxAddParty}/>
-
-      <div><button type="submit">Let's Party!!</button></div>
     </form>
     </Form>
     </Card>
