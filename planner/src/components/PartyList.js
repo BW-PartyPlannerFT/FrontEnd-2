@@ -5,6 +5,7 @@
 // Button to create new party that redirects you to PartyForm
 
 import React, { useEffect } from 'react';
+// import AppNav from '../components/AppNav';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {rxGetParty} from '../redux/parties/actions';
@@ -55,7 +56,9 @@ if(props.isLoading){
 }else{
   
   return (
+
     <>
+    {/* <AppNav/> */}
     <Title><h1>Choose Party to Plan</h1></Title>
       <Link to="/partyform">
           <button>ADD NEW PARTY</button>

@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import CreateAccount from './components/CreateAccount';
 import PartyForm from './components/PartyForm';
+// import TodoList from '../src/components/todolist/TodoList';
 import './components/Signup.css';
 
 // import CombinedLists from './components/CombinedLists';
@@ -31,9 +32,7 @@ function App() {
 			<Route path='/register' component={Signup}/>
       <Route path='/planner/login' component={Login}/>
       <Route path='/planner/register' component={CreateAccount}/>
-
     <PrivateRoute>
-
       <Route exact path='/partyList' render={props => (
         <PartyList
           {...props}
@@ -44,10 +43,11 @@ function App() {
       )} />
       <Route path="/partyform" component={PartyForm}/>
       <Route path="/imageupload" component={ImageUpload}/>
-      
+      {/* <Route path="/todolist" component={TodoList}/> */}
       <Route path="/addItem" component={AddItem} />
       <Route path="/shoplist" component={ShopList} />
-      {/* <Route path='/lists' component={CombinedLists}/> */}
+      
+      
     </PrivateRoute>
     </Switch>
 
