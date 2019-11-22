@@ -26,6 +26,7 @@ border-radius: 10px;
 margin: 20px auto;
 display: flex;
 justify-content: space-between;
+margin-botton: 10%;
 `;
 
 const CardStyle = styled.div `    
